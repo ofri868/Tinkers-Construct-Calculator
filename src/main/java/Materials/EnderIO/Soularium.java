@@ -1,0 +1,30 @@
+package Materials.EnderIO;
+
+import Abilities.*;
+import Materials.Material;
+import Utils.MiningLevel;
+import Utils.PartType;
+
+public class Soularium extends Material {
+    public Soularium() {
+        super("Soularium", 1, MiningLevel.STONE, 1, 0.5);
+    }
+
+    @Override
+    public void setDurability(PartType type) {
+        switch (type){
+            case HEAD -> setDurability(1555);
+            case HANDLE -> setDurability(1500);
+            case EXTRA -> setDurability(1250);
+        }
+    }
+
+    @Override
+    public void setAbilities(PartType type) {
+        switch (type){
+            case HEAD -> abilities.add(new Hellish(1));
+            case HANDLE -> abilities.add(new Flammable(1));
+            case EXTRA -> abilities.add(new Splinters(1));
+        }
+    }
+}
