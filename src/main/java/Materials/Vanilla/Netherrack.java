@@ -1,0 +1,33 @@
+package Materials.Vanilla;
+
+import Abilities.Aridiculous;
+import Abilities.Hellish;
+import Materials.Material;
+import Utils.MiningLevel;
+import Utils.PartType;
+
+public class Netherrack extends Material {
+    public Netherrack() {
+        super("Netherrack", 4.5, MiningLevel.IRON, 3, 0.85);
+    }
+
+    @Override
+    public void setDurability(PartType type) {
+        switch (type){
+            case HEAD -> setDurability(270);
+            case HANDLE -> setDurability(-150);
+            case EXTRA -> setDurability(75);
+        }
+    }
+
+    @Override
+    public void setAbilities(PartType type) {
+        switch (type){
+            case HEAD -> {
+                abilities.add(new Aridiculous(1));
+                abilities.add(new Hellish(1));
+            }
+            case HANDLE, EXTRA -> abilities.add(new Hellish(1));
+        }
+    }
+}
