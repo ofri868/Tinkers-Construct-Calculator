@@ -1,0 +1,33 @@
+# Maven build directory
+/target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# VS Code
+.vscode/
+
+# Java
+*.class
+*.log
+*.jar
+*.war
+*.ear
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Scene Builder cache (just in case)
+*~backup.fxml
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+
+
