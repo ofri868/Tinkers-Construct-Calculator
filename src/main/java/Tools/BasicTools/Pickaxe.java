@@ -1,9 +1,9 @@
 package Tools.BasicTools;
 
-import Parts.Part;
+import Parts.ToolPart;
 
 public class Pickaxe extends BasicTool{
-    public Pickaxe(String toolName, Part head, Part extra, Part handle){
+    public Pickaxe(String toolName, ToolPart head, ToolPart extra, ToolPart handle){
         super(toolName, head, extra, handle);
     }
 

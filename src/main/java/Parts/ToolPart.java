@@ -3,11 +3,11 @@ package Parts;
 import Materials.Material;
 import Utils.PartType;
 
-public abstract class Part {
+public abstract class ToolPart {
     private final PartType partType;
     private final Material material;
 
-    public Part(PartType partType, Material material) {
+    public ToolPart(PartType partType, Material material) {
         this.partType = partType;
         this.material = material;
         material.setDurability(partType);
