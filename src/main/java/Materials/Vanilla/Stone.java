@@ -1,10 +1,10 @@
 package Materials.Vanilla;
 
-import Abilities.*;
+import Abilities.Cheapskate;
+import Abilities.Cheap;
 import Materials.Material;
 import Utils.MiningLevel;
 import Utils.PartType;
-import java.util.Objects;
 
 public class Stone extends Material {
     public Stone(){

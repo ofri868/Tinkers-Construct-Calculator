@@ -1,7 +1,5 @@
 package Materials.Vanilla;
 
-import Abilities.Crude;
-import Abilities.Lightweight;
 import Abilities.Prickly;
 import Abilities.Spiky;
 import Materials.Material;

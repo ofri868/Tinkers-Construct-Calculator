@@ -2,9 +2,7 @@ package Tools;
 import Abilities.Ability;
 import Parts.Part;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public abstract class Tool {

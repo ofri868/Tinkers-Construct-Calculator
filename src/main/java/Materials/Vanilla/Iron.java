@@ -1,6 +1,5 @@
 package Materials.Vanilla;
-import Abilities.Crude;
-import Abilities.Lightweight;
+
 import Abilities.Magnetic;
 import Materials.Material;
 import Utils.MiningLevel;

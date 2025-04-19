@@ -1,7 +1,5 @@
 package Materials.EnderIO;
 
-import Abilities.Crude;
-import Abilities.Lightweight;
 import Abilities.Vanishing;
 import Materials.Material;
 import Utils.MiningLevel;

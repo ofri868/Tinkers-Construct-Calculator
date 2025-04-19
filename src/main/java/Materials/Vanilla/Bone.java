@@ -1,8 +1,6 @@
 package Materials.Vanilla;
 
-import Abilities.Crude;
 import Abilities.Fractured;
-import Abilities.Lightweight;
 import Abilities.Splintering;
 import Materials.Material;
 import Utils.MiningLevel;
