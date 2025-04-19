@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Tinker's Construct Calculator" />
+        <module name="tinkers-construct-calculator" />
       </profile>
     </annotationProcessing>
   </component>
