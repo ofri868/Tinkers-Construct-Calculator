@@ -1,4 +1,6 @@
 package Logic.Materials;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import Logic.Abilities.Ability;
@@ -14,6 +16,17 @@ public abstract class Material {
     protected final double baseDamage;
     protected final double handleModifier;
     protected List<Ability> abilities;
+    public static final List<String> MATERIALS = Arrays.asList(
+            "Electrical Steel", "Energetic Alloy", "Vibrant Alloy", "Redstone Alloy", "Conductive Iron",
+            "Pulsating Iron", "Dark Steel", "Soularium", "End Steel", "Alien Iron Alloy", "Naga Scale",
+            "Precipitate", "Steeleaf", "Synergy", "Fiery Ingot", "Superheat", "Knightmetal Ingot", "Stalwart",
+            "Wood", "Stone", "Flint", "Cactus", "Bone", "Obsidian", "Prismarine", "Aquadynamic", "End Stone",
+            "Paper", "Sponge", "Firewood", "Iron", "Pig Iron", "Knightslime", "Slime", "Blue Slime",
+            "Magma Slime", "Netherrack", "Hellish", "Cobalt", "Ardite", "Manyullyn", "Copper", "Bronze",
+            "Lead", "Silver", "Electrum", "Steel", "Treated Wood", "Constantan", "Magical Wood",
+            "Magically Brittle", "Evil Infused Iron", "Enchanted Metal", "Demonic Metal", "Plastic",
+            "Pink Slime", "Reinforced Pink Slime", "Dense", "Corrupted"
+    );
 
     public Material(String name, double miningSpeed, MiningLevel miningLevel, double baseDamage, double handleModifier) {
         this.name = name;

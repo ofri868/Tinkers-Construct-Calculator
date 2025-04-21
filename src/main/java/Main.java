@@ -1,6 +1,5 @@
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -8,9 +7,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/your/package/fxml/main_view.fxml"));
-        primaryStage.setTitle("JavaFX + Your Project");
-        primaryStage.setScene(new Scene(root, 400, 300));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main_view.fxml"));
+        Scene scene = new Scene(loader.load());
+        primaryStage.setTitle("Tinker's Construct Calculator");
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
