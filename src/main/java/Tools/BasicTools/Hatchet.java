@@ -1,10 +1,10 @@
-package Tools.TwoPartTools;
+package Tools.BasicTools;
 
 import Parts.ToolPart;
 import Tools.Tool;
 
-public class Shovel extends Tool {
-    public Shovel(String toolName, ToolPart head, ToolPart handle){
+public class Hatchet extends Tool {
+    public Hatchet(String toolName, ToolPart head, ToolPart handle){
         super(toolName, head, handle);
     }
 
@@ -17,5 +17,5 @@ public class Shovel extends Tool {
     public void calculateMiningSpeed() { miningSpeed = head.getMaterial().getMiningSpeed(); }
 
     @Override
-    public void calculateAttack() { attack = head.getMaterial().getBaseDamage()+1; }
+    public void calculateAttack() { attack = head.getMaterial().getBaseDamage(); }
 }
