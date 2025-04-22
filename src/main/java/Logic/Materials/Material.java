@@ -18,14 +18,13 @@ public abstract class Material {
     protected List<Ability> abilities;
     public static final List<String> MATERIALS = Arrays.asList(
             "Electrical Steel", "Energetic Alloy", "Vibrant Alloy", "Redstone Alloy", "Conductive Iron",
-            "Pulsating Iron", "Dark Steel", "Soularium", "End Steel", "Alien Iron Alloy", "Naga Scale",
-            "Precipitate", "Steeleaf", "Synergy", "Fiery Ingot", "Superheat", "Knightmetal Ingot", "Stalwart",
-            "Wood", "Stone", "Flint", "Cactus", "Bone", "Obsidian", "Prismarine", "Aquadynamic", "End Stone",
-            "Paper", "Sponge", "Firewood", "Iron", "Pig Iron", "Knightslime", "Slime", "Blue Slime",
-            "Magma Slime", "Netherrack", "Hellish", "Cobalt", "Ardite", "Manyullyn", "Copper", "Bronze",
-            "Lead", "Silver", "Electrum", "Steel", "Treated Wood", "Constantan", "Magical Wood",
-            "Magically Brittle", "Evil Infused Iron", "Enchanted Metal", "Demonic Metal", "Plastic",
-            "Pink Slime", "Reinforced Pink Slime", "Dense", "Corrupted"
+            "Pulsating Iron", "Dark Steel", "Soularium", "End Steel", "Iron Alloy", "Naga Scale",
+            "Steeleaf", "Fiery Ingot", "Knightmetal Ingot", "Wood", "Stone", "Flint", "Cactus", "Bone",
+            "Obsidian", "Prismarine", "End Stone", "Paper", "Sponge", "Firewood", "Iron",
+            "Pig Iron", "Knightslime", "Slime", "Blue Slime", "Magma Slime", "Netherrack",
+            "Cobalt", "Ardite", "Manyullyn", "Copper", "Bronze", "Lead", "Silver", "Electrum", "Steel",
+            "Treated Wood", "Constantan", "Magical Wood", "Evil Infused Iron", "Enchanted Metal",
+            "Demonic Metal", "Plastic", "Pink Slime", "Reinforced Pink Slime", "Corrupted"
     );
 
     public Material(String name, double miningSpeed, MiningLevel miningLevel, double baseDamage, double handleModifier) {
