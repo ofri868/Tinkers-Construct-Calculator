@@ -1,24 +1,34 @@
 package Controllers;
 
 import Logic.Materials.Material;
+import Logic.Parts.ToolPart;
 import Logic.Tools.Tool;
+import Logic.Utils.PartType;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.util.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainController {
 
+    public ImageView logoImage;
+    private Tool tool;
     @FXML
     private ComboBox<String> toolComboBox;
 
     @FXML
-    private HBox toolOptionsContainer;
+    private HBox materialOptionsContainer;
 
     @FXML
     private HBox toolStatsContainer;
@@ -31,106 +41,93 @@ public class MainController {
         toolComboBox.getItems().addAll("Pickaxe", "Shovel", "Hatchet", "Mattock", "Hammer", "Excavator", "Lumber Axe", "Scythe");
         toolComboBox.setOnAction(event -> handleToolSelection(toolComboBox.getValue()));
         calculateButton.setOnAction(event -> {
-            toolOptionsContainer.getChildren().removeIf((Node n) -> n.getId() != null && n.getId().equals("errorLabel"));
+            materialOptionsContainer.getChildren().removeIf((Node n) -> n.getId() != null && n.getId().equals("errorLabel"));
             try{
                 calculateToolStats();
             }
             catch (Exception e){
                 Label errorLabel = new Label(e.getMessage());
                 errorLabel.setId("errorLabel");
-                toolOptionsContainer.getChildren().add(errorLabel);
+                materialOptionsContainer.getChildren().add(errorLabel);
                 System.out.println(e.getMessage());
             }
 
         });
     }
     private void handleToolSelection(String selectedTool) {
-        toolOptionsContainer.getChildren().clear(); // Clear previous dropdowns
+
+        materialOptionsContainer.getChildren().clear();
 
         switch (selectedTool) {
             case "Pickaxe" ->
-                    toolOptionsContainer.getChildren().addAll(
-                    new Label("Pickaxe Head:"),
-                    createMaterialDropdown("Pickaxe Head"),
-                    new Label("Binding:"),
-                    createMaterialDropdown("Binding"),
-                    new Label("Tool Rod:"),
-                    createMaterialDropdown("Tool Rod")
-            );
+                materialOptionsContainer.getChildren().addAll(
+                        createLabelWithComboBox("Pickaxe Head:"),
+                        createLabelWithComboBox("Binding:"),
+                        createLabelWithComboBox("Tool Rod:")
+                );
 
             case "Shovel" ->
-                    toolOptionsContainer.getChildren().addAll(
-                    new Label("Shovel Head:"),
-                    createMaterialDropdown("Shovel Head"),
-                    new Label("Tool Rod:"),
-                    createMaterialDropdown("Tool Rod")
-            );
+                materialOptionsContainer.getChildren().addAll(
+                        createLabelWithComboBox("Shovel Head:"),
+                        createLabelWithComboBox("Tool Rod:")
+                );
 
             case "Hatchet" ->
-                    toolOptionsContainer.getChildren().addAll(
-                    new Label("Hatchet Head:"),
-                    createMaterialDropdown("Hatchet Head"),
-                    new Label("Tool Rod:"),
-                    createMaterialDropdown("Tool Rod")
-            );
+                materialOptionsContainer.getChildren().addAll(
+                        createLabelWithComboBox("Hatchet Head:"),
+                        createLabelWithComboBox("Tool Rod:")
+                );
 
             case "Mattock" ->
-                    toolOptionsContainer.getChildren().addAll(
-                    new Label("Axe Head:"),
-                    createMaterialDropdown("Axe Head"),
-                    new Label("Shovel Head:"),
-                    createMaterialDropdown("Shovel Head"),
-                    new Label("Tool Rod:"),
-                    createMaterialDropdown("Tool Rod")
-            );
+                materialOptionsContainer.getChildren().addAll(
+                        createLabelWithComboBox("Axe Head:"),
+                        createLabelWithComboBox("Shovel Head:"),
+                        createLabelWithComboBox("Tool Rod:")
+                );
 
             case "Hammer" ->
-                    toolOptionsContainer.getChildren().addAll(
-                    new Label("Hammer Head:"),
-                    createMaterialDropdown("Hammer Head"),
-                    new Label("Large Plate:"),
-                    createMaterialDropdown("Large Plate"),
-                    new Label("Large Plate:"),
-                    createMaterialDropdown("Large Plate"),
-                    new Label("Tough Tool Rod:"),
-                    createMaterialDropdown("Tough Tool Rod")
-            );
+                materialOptionsContainer.getChildren().addAll(
+                        createLabelWithComboBox("Hammer Head:"),
+                        createLabelWithComboBox("Large Plate:"),
+                        createLabelWithComboBox("Large Plate:"),
+                        createLabelWithComboBox("Tough Tool Rod:")
+                );
 
             case "Scythe" ->
-                    toolOptionsContainer.getChildren().addAll(
-                    new Label("Scythe Head:"),
-                    createMaterialDropdown("Scythe Head"),
-                    new Label("Tough Tool Binding:"),
-                    createMaterialDropdown("Tough Tool Binding"),
-                    new Label("Tough Tool Rod:"),
-                    createMaterialDropdown("Tough Tool Rod"),
-                    new Label("Tough Tool Rod:"),
-                    createMaterialDropdown("Tough Tool Rod")
-            );
+                materialOptionsContainer.getChildren().addAll(
+                        createLabelWithComboBox("Scythe Head:"),
+                        createLabelWithComboBox("Tough Tool Binding:"),
+                        createLabelWithComboBox("Tough Tool Rod:"),
+                        createLabelWithComboBox("Tough Tool Rod:")
+                );
+
             case "Excavator" ->
-                    toolOptionsContainer.getChildren().addAll(
-                    new Label("Broad Shovel Head:"),
-                    createMaterialDropdown("Broad Shovel Head"),
-                    new Label("Large Plate:"),
-                    createMaterialDropdown("Large Plate"),
-                    new Label("Tough Tool Binding:"),
-                    createMaterialDropdown("Tough Tool Binding"),
-                    new Label("Tough Tool Rod:"),
-                    createMaterialDropdown("Tough Tool Rod")
-            );
+                materialOptionsContainer.getChildren().addAll(
+                        createLabelWithComboBox("Broad Shovel Head:"),
+                        createLabelWithComboBox("Large Plate:"),
+                        createLabelWithComboBox("Tough Tool Binding:"),
+                        createLabelWithComboBox("Tough Tool Rod:")
+                );
+
             case "Lumber Axe" ->
-                    toolOptionsContainer.getChildren().addAll(
-                    new Label("Broad Axe Head:"),
-                    createMaterialDropdown("Broad Axe Head"),
-                    new Label("Large Plate:"),
-                    createMaterialDropdown("Large Plate"),
-                    new Label("Tough Tool Binding:"),
-                    createMaterialDropdown("Tough Tool Binding"),
-                    new Label("Tough Tool Rod:"),
-                    createMaterialDropdown("Tough Tool Rod")
-            );
+                materialOptionsContainer.getChildren().addAll(
+                        createLabelWithComboBox("Broad Axe Head:"),
+                        createLabelWithComboBox("Large Plate:"),
+                        createLabelWithComboBox("Tough Tool Binding:"),
+                        createLabelWithComboBox("Tough Tool Rod:")
+                );
         }
-        System.out.println(toolOptionsContainer.getChildren().size());
+    }
+
+    private VBox createLabelWithComboBox(String labelText) {
+        VBox vbox = new VBox(5); // 5 is the spacing between the label and combo box
+        vbox.setPadding(new Insets(10, 10, 10, 10)); // Padding: top, right, bottom, left
+        Label label = new Label(labelText);
+        label.setPadding(new Insets(5, 5, 5, 5)); // Optional: add padding to the label itself
+        ComboBox<String> comboBox = createMaterialDropdown(labelText);
+        comboBox.setPadding(new Insets(5, 5, 5, 5)); // Optional: add padding to the combo box
+        vbox.getChildren().addAll(label, comboBox);
+        return vbox;
     }
 
     private ComboBox<String> createMaterialDropdown(String id) {
@@ -147,27 +144,66 @@ public class MainController {
             System.out.println("No tool selected!");
             return;
         }
-        List<String> selectedMaterials = getMaterials();
+        List<Pair<PartType, String>> selectedMaterials = getMaterials();
+        List<ToolPart> parts = new ArrayList<>();
+        for (Pair<PartType, String> pair : selectedMaterials) {
+            parts.add(new ToolPart(pair.getKey(), Material.createMaterialInstance(pair.getValue())));
+        }
+        tool = Tool.getTool(toolComboBox.getValue(), parts);
         System.out.println("Created ToolStats: " + selectedTool + " " + selectedMaterials);
+        displayToolStats();
     }
 
-    private List<String> getMaterials() throws Exception {
-        List<String> selectedMaterials = new ArrayList<>();
+    private void displayToolStats() {
+        if(tool == null){
+            System.out.println("No tool selected!");
+            return;
+        }
+        toolStatsContainer.getChildren().clear();
+        VBox nameAndMaterials = new VBox();
+        nameAndMaterials.getChildren().add(new Text(tool.toString()));
+        VBox stats = new VBox();
+        stats.getChildren().add(new Text("Durability: " + tool.getDurability()));
+        stats.getChildren().add(new Text("Mining Speed: " + tool.getMiningSpeed()));
+        stats.getChildren().add(new Text("Attack: " + tool.getAttack()));
+        toolStatsContainer.getChildren().add(stats);
+    }
 
-        for (Node node : toolOptionsContainer.getChildren()) {
-            if (node instanceof ComboBox<?>) {
-                @SuppressWarnings("unchecked")
-                ComboBox<String> materialBox = (ComboBox<String>) node;
-                String selectedMaterial = materialBox.getValue();
-                if (selectedMaterial != null) {
-                    selectedMaterials.add(selectedMaterial);
-                }
-                else {
+    private List<Pair<PartType, String>> getMaterials() throws Exception {
+        List<Pair<PartType, String>> selectedMaterials = new ArrayList<>();
+        System.out.println(materialOptionsContainer.getChildren().size());
 
-                    throw new Exception("please select " + materialBox.getId() + " material");
+        for (Node node : materialOptionsContainer.getChildren()) {
+            if (node instanceof VBox) {
+                for (Node child : ((VBox) node).getChildren()) {
+                    if (child instanceof ComboBox) {
+                        @SuppressWarnings("unchecked")
+                        ComboBox<String> materialBox = (ComboBox<String>) child;
+                        PartType partType = getSelectedPartType(child.getId());
+                        String selectedMaterial = materialBox.getValue();
+                        if (selectedMaterial != null) {
+                            selectedMaterials.add(new Pair<>(partType, selectedMaterial));
+                        }
+                        else {
+                            throw new Exception("please select " + materialBox.getId() + " material");
+                        }
+                    }
                 }
             }
         }
         return selectedMaterials;
+    }
+
+    private PartType getSelectedPartType(String boxName) {
+        if(boxName.toLowerCase().contains("rod")){
+            return PartType.HANDLE;
+        }
+        else if(boxName.toLowerCase().contains("binding") || boxName.toLowerCase().contains("plate")){
+            return PartType.EXTRA;
+        }
+        else if(boxName.toLowerCase().contains("head")){
+            return PartType.HEAD;
+        }
+        throw new IllegalArgumentException("no material type found");
     }
 }

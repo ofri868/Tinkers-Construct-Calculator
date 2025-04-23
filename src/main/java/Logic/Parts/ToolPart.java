@@ -3,7 +3,7 @@ package Logic.Parts;
 import Logic.Materials.Material;
 import Logic.Utils.PartType;
 
-public abstract class ToolPart {
+public class ToolPart {
     private final PartType partType;
     private final Material material;
 
@@ -14,4 +14,9 @@ public abstract class ToolPart {
     }
     public PartType getPartType() { return partType; }
     public Material getMaterial() { return material; }
+
+    @Override
+    public String toString() {
+        return partType.toString() + ": " + material.toString();
+    }
 }

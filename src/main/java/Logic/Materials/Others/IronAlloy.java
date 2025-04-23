@@ -1,10 +1,11 @@
-package Logic.Materials;
+package Logic.Materials.Others;
 
 import Logic.Abilities.Cheapskate;
+import Logic.Materials.Material;
 import Logic.Utils.MiningLevel;
 import Logic.Utils.PartType;
 
-public class IronAlloy extends Material{
+public class IronAlloy extends Material {
     public IronAlloy(){
         super("Iron Alloy", 1.25, MiningLevel.IRON, 1, 0.5);
     }

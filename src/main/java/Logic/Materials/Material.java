@@ -45,4 +45,27 @@ public abstract class Material {
     public List<Ability> getAbilities(){return abilities;}
     public abstract void setAbilities(PartType type);
     public void addAbility(Ability ability){abilities.add(ability);}
+    public static Material createMaterialInstance(String materialName) {
+        List<String> availablePackages = Arrays.asList("EnderIO", "ExtraUtilities", "IndustrialForegoing", "Others", "ThermalExpansion", "TheTwilightForest", "TinkersConstruct");
+        for(String packageName : availablePackages){
+            try {
+                // Remove spaces to match class name
+                String className = materialName.replace(" ", "");
+                // Full package path to your material classes
+                String fullClassName = "com.example.materials." + packageName + "." + className;
+                // Load the class and instantiate it
+                Class<?> clazz = Class.forName(fullClassName);
+                if (Material.class.isAssignableFrom(clazz)) {
+                    return (Material) clazz.getDeclaredConstructor().newInstance();
+                } else {
+                    throw new IllegalArgumentException("Class " + className + " is not a subclass of Material");
+                }
+            } catch (ClassNotFoundException e) {
+                System.err.println("No class found for material: " + materialName);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        throw new IllegalArgumentException("material not found!");
+    }
 }

@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('/fonts/PressStart2P.ttf');
+}
+
+.title-label {
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 24px;
+    -fx-stroke: black;
+    -fx-stroke-width: 2;
+    -fx-fill: yellow;
+}
+.root {
+    /*-fx-background-image: url("/images/Tinkers_Construct_-_Fancy_Seared_Bricks.png");*/
+    -fx-background-color: #f0f4f8;
+    -fx-padding: 20;
+}
+
+.label {
+    -fx-text-fill: #333;
+}
+
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.combo-box {
+    -fx-background-color: white;
+}

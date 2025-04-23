@@ -1,6 +1,7 @@
-package Logic.Materials;
+package Logic.Materials.Others;
 
 import Logic.Abilities.Autosmelt;
+import Logic.Materials.Material;
 import Logic.Utils.MiningLevel;
 import Logic.Utils.PartType;
 
