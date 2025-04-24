@@ -9,6 +9,7 @@ public class Mattock extends Tool {
     public Mattock(String toolName, ToolPart head, ToolPart shovelHead, ToolPart handle) {
         super(toolName, head, handle);
         this.shovelHead = shovelHead;
+        calculateAbilities();
     }
 
     @Override

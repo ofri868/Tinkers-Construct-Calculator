@@ -9,6 +9,7 @@ public class Pickaxe extends Tool {
     public Pickaxe(String toolName, ToolPart head, ToolPart binding, ToolPart handle){
         super(toolName, head, handle);
         this.binding = binding;
+        calculateAbilities();
     }
 
     @Override

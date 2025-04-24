@@ -6,6 +6,7 @@ import Logic.Tools.Tool;
 public class Shovel extends Tool {
     public Shovel(String toolName, ToolPart head, ToolPart handle){
         super(toolName, head, handle);
+        calculateAbilities();
     }
 
     @Override

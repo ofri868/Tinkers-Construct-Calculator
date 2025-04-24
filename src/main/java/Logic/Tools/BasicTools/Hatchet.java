@@ -6,6 +6,7 @@ import Logic.Tools.Tool;
 public class Hatchet extends Tool {
     public Hatchet(String toolName, ToolPart head, ToolPart handle){
         super(toolName, head, handle);
+        calculateAbilities();
     }
 
     @Override

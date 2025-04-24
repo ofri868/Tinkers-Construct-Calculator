@@ -11,6 +11,7 @@ public class ToolPart {
         this.partType = partType;
         this.material = material;
         material.setDurability(partType);
+        material.setAbilities(partType);
     }
     public PartType getPartType() { return partType; }
     public Material getMaterial() { return material; }

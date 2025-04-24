@@ -30,7 +30,6 @@ public abstract class Tool {
         calculateDurability();
         calculateMiningSpeed();
         calculateAttack();
-        calculateAbilities();
     }
     public String getToolName() { return toolName; }
     public ToolPart getHead() { return head; }

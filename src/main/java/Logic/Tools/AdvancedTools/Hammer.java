@@ -3,7 +3,7 @@ package Logic.Tools.AdvancedTools;
 import Logic.Parts.ToolPart;
 
 public class Hammer extends AdvancedTool{
-    public Hammer(String toolName, ToolPart head, ToolPart handle, ToolPart plate1, ToolPart plate2){
+    public Hammer(String toolName, ToolPart head, ToolPart plate1, ToolPart plate2, ToolPart handle){
         super(toolName, head, handle, plate1, plate2);
     }
 

@@ -1,0 +1,14 @@
+this build
+- fix hammer (and probably other advanced tools) not calculating
+- make tool parts
+- move attack stat to tool part
+- add toString methods to tools and tool parts
+
+next builds
+- make comparison feature
+- add comparison page
+- add weapons and bows
+- add armors
+- make landing view with buttons to select gear to calculate
+- make different pages for different gear types
+- add images for materials

@@ -20,6 +20,11 @@
     -fx-text-fill: #333;
 }
 
+.error-label{
+    -fx-fill: red;
+    -fx-font-weight: bold;
+}
+
 .button {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;

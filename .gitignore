@@ -1,6 +1,8 @@
 # Maven build directory
 /target/
 
+todo.txt
+
 # IntelliJ IDEA
 .idea/
 *.iml

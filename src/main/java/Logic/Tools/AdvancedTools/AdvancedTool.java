@@ -10,6 +10,7 @@ public abstract class AdvancedTool extends Tool {
         super(toolName, head, handle);
         this.extra1 = extra1;
         this.extra2 = extra2;
+        calculateAbilities();
     }
 
     @Override

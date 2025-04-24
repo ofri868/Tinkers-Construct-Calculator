@@ -33,6 +33,7 @@ public abstract class Material {
         this.miningLevel = miningLevel;
         this.baseDamage = baseDamage;
         this.handleModifier = handleModifier;
+        abilities = new ArrayList<>();
     }
     public String getName(){return name;}
     public int getDurability(){return durability;}
@@ -46,25 +47,29 @@ public abstract class Material {
     public abstract void setAbilities(PartType type);
     public void addAbility(Ability ability){abilities.add(ability);}
     public static Material createMaterialInstance(String materialName) {
-        List<String> availablePackages = Arrays.asList("EnderIO", "ExtraUtilities", "IndustrialForegoing", "Others", "ThermalExpansion", "TheTwilightForest", "TinkersConstruct");
-        for(String packageName : availablePackages){
-            try {
+        List<String> availablePackages = Arrays.asList("EnderIO", "ExtraUtilities", "IndustrialForegoing", "Others", "ThermalExpansion", "TheTwilightForest", "TinkersConstruct", "Vanilla");
+        try {
+            for(String packageName : availablePackages) {
                 // Remove spaces to match class name
                 String className = materialName.replace(" ", "");
                 // Full package path to your material classes
-                String fullClassName = "com.example.materials." + packageName + "." + className;
+                String fullClassName = "Logic.Materials." + packageName + "." + className;
                 // Load the class and instantiate it
-                Class<?> clazz = Class.forName(fullClassName);
+                Class<?> clazz;
+                try {
+                    clazz = Class.forName(fullClassName);
+                }
+                catch (ClassNotFoundException e) {
+                    continue;
+                }
                 if (Material.class.isAssignableFrom(clazz)) {
                     return (Material) clazz.getDeclaredConstructor().newInstance();
                 } else {
                     throw new IllegalArgumentException("Class " + className + " is not a subclass of Material");
                 }
-            } catch (ClassNotFoundException e) {
-                System.err.println("No class found for material: " + materialName);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         throw new IllegalArgumentException("material not found!");
     }

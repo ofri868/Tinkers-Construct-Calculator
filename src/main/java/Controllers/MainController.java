@@ -37,18 +37,19 @@ public class MainController {
     private Button calculateButton;
 
     @FXML
+    private Text errorLabel;
+
+    @FXML
     public void initialize() {
         toolComboBox.getItems().addAll("Pickaxe", "Shovel", "Hatchet", "Mattock", "Hammer", "Excavator", "Lumber Axe", "Scythe");
         toolComboBox.setOnAction(event -> handleToolSelection(toolComboBox.getValue()));
         calculateButton.setOnAction(event -> {
-            materialOptionsContainer.getChildren().removeIf((Node n) -> n.getId() != null && n.getId().equals("errorLabel"));
+            errorLabel.setVisible(false);
             try{
                 calculateToolStats();
             }
             catch (Exception e){
-                Label errorLabel = new Label(e.getMessage());
-                errorLabel.setId("errorLabel");
-                materialOptionsContainer.getChildren().add(errorLabel);
+                displayError(e.getMessage());
                 System.out.println(e.getMessage());
             }
 
@@ -141,22 +142,27 @@ public class MainController {
     private void calculateToolStats() throws Exception{
         String selectedTool = toolComboBox.getValue();
         if (selectedTool == null || selectedTool.isEmpty()) {
-            System.out.println("No tool selected!");
+            displayError("No Tool Selected");
             return;
         }
-        List<Pair<PartType, String>> selectedMaterials = getMaterials();
-        List<ToolPart> parts = new ArrayList<>();
-        for (Pair<PartType, String> pair : selectedMaterials) {
-            parts.add(new ToolPart(pair.getKey(), Material.createMaterialInstance(pair.getValue())));
+        List<Pair<PartType, String>> selectedMaterials;
+        try{
+            selectedMaterials = getMaterials();
+            List<ToolPart> parts = new ArrayList<>();
+            for (Pair<PartType, String> pair : selectedMaterials) {
+                parts.add(new ToolPart(pair.getKey(), Material.createMaterialInstance(pair.getValue())));
+            }
+            tool = Tool.getTool(toolComboBox.getValue(), parts);
+            displayToolStats();
         }
-        tool = Tool.getTool(toolComboBox.getValue(), parts);
-        System.out.println("Created ToolStats: " + selectedTool + " " + selectedMaterials);
-        displayToolStats();
+        catch (Exception e){
+            displayError(e.getMessage());
+        }
     }
 
     private void displayToolStats() {
         if(tool == null){
-            System.out.println("No tool selected!");
+            displayError("No Tool Selected");
             return;
         }
         toolStatsContainer.getChildren().clear();
@@ -171,8 +177,6 @@ public class MainController {
 
     private List<Pair<PartType, String>> getMaterials() throws Exception {
         List<Pair<PartType, String>> selectedMaterials = new ArrayList<>();
-        System.out.println(materialOptionsContainer.getChildren().size());
-
         for (Node node : materialOptionsContainer.getChildren()) {
             if (node instanceof VBox) {
                 for (Node child : ((VBox) node).getChildren()) {
@@ -185,7 +189,7 @@ public class MainController {
                             selectedMaterials.add(new Pair<>(partType, selectedMaterial));
                         }
                         else {
-                            throw new Exception("please select " + materialBox.getId() + " material");
+                            throw new Exception("please select " + materialBox.getId().replace(":", "") + " material");
                         }
                     }
                 }
@@ -205,5 +209,10 @@ public class MainController {
             return PartType.HEAD;
         }
         throw new IllegalArgumentException("no material type found");
+    }
+
+    private void displayError(String text){
+        errorLabel.setVisible(true);
+        errorLabel.setText(text);
     }
 }

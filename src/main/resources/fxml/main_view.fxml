@@ -25,6 +25,7 @@
         <VBox spacing="5">
             <Label text="Tool:"/>
             <ComboBox fx:id="toolComboBox" promptText="Select Tool"/>
+            <Text fx:id="errorLabel" styleClass="error-label"/>
             <HBox fx:id="materialOptionsContainer" alignment="CENTER_LEFT"/>
             <Button fx:id="calculateButton" text="Calculate" alignment="CENTER"/>
             <HBox fx:id="toolStatsContainer" alignment="CENTER_LEFT"/>

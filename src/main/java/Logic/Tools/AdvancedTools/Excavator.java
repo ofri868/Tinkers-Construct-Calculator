@@ -3,7 +3,7 @@ package Logic.Tools.AdvancedTools;
 import Logic.Parts.ToolPart;
 
 public class Excavator extends AdvancedTool{
-    public Excavator(String toolName, ToolPart head, ToolPart handle, ToolPart plate, ToolPart binding) {
+    public Excavator(String toolName, ToolPart head, ToolPart plate, ToolPart binding, ToolPart handle) {
         super(toolName, head, handle, plate, binding);
     }
 
