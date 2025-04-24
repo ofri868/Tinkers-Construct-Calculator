@@ -11,11 +11,11 @@ public class IronAlloy extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(50);
-            case HANDLE, EXTRA -> setDurability(10);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 50;
+            case HANDLE, EXTRA -> 10;
+        };
     }
 
     @Override

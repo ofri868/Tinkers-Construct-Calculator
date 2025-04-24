@@ -12,12 +12,12 @@ public class Manyullyn extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(820);
-            case HANDLE -> setDurability(250);
-            case EXTRA -> setDurability(50);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 820;
+            case HANDLE -> 250;
+            case EXTRA -> 50;
+        };
     }
 
     @Override

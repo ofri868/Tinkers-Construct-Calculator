@@ -12,12 +12,12 @@ public class Iron extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(204);
-            case HANDLE -> setDurability(60);
-            case EXTRA -> setDurability(50);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 204;
+            case HANDLE -> 60;
+            case EXTRA -> 50;
+        };
     }
 
     @Override

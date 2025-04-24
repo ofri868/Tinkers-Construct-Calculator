@@ -12,12 +12,12 @@ public class MagmaSlime extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(600);
-            case HANDLE -> setDurability(-200);
-            case EXTRA -> setDurability(150);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 600;
+            case HANDLE -> -200;
+            case EXTRA -> 150;
+        };
     }
 
     @Override

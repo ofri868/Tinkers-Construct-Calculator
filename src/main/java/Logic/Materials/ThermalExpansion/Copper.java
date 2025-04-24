@@ -11,12 +11,12 @@ public class Copper extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(210);
-            case HANDLE -> setDurability(30);
-            case EXTRA -> setDurability(100);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 210;
+            case HANDLE -> 30;
+            case EXTRA -> 100;
+        };
     }
 
     @Override

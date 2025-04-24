@@ -1,7 +1,7 @@
 package Controllers;
 
+import Logic.Abilities.Ability;
 import Logic.Materials.Material;
-import Logic.Parts.ToolPart;
 import Logic.Tools.Tool;
 import Logic.Utils.PartType;
 import javafx.collections.FXCollections;
@@ -16,28 +16,22 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainController {
-
     public ImageView logoImage;
     private Tool tool;
     @FXML
     private ComboBox<String> toolComboBox;
-
     @FXML
-    private HBox materialOptionsContainer;
-
+    private HBox materialOptionsContainer, toolStatsContainer;
     @FXML
-    private HBox toolStatsContainer;
-
+    private VBox toolAbilitiesVBox;
+    @FXML
+    private Text toolName, toolStats, toolParts, errorLabel;
     @FXML
     private Button calculateButton;
-
-    @FXML
-    private Text errorLabel;
 
     @FXML
     public void initialize() {
@@ -139,7 +133,7 @@ public class MainController {
         return materialDropdown;
     }
 
-    private void calculateToolStats() throws Exception{
+    private void calculateToolStats(){
         String selectedTool = toolComboBox.getValue();
         if (selectedTool == null || selectedTool.isEmpty()) {
             displayError("No Tool Selected");
@@ -148,31 +142,15 @@ public class MainController {
         List<Pair<PartType, String>> selectedMaterials;
         try{
             selectedMaterials = getMaterials();
-            List<ToolPart> parts = new ArrayList<>();
+            List<Pair<PartType, Material>> parts = new ArrayList<>();
             for (Pair<PartType, String> pair : selectedMaterials) {
-                parts.add(new ToolPart(pair.getKey(), Material.createMaterialInstance(pair.getValue())));
+                parts.add(new Pair<>(pair.getKey(), Material.createMaterialInstance(pair.getValue())));
             }
             tool = Tool.getTool(toolComboBox.getValue(), parts);
             displayToolStats();
-        }
-        catch (Exception e){
+        } catch (Exception e){
             displayError(e.getMessage());
         }
-    }
-
-    private void displayToolStats() {
-        if(tool == null){
-            displayError("No Tool Selected");
-            return;
-        }
-        toolStatsContainer.getChildren().clear();
-        VBox nameAndMaterials = new VBox();
-        nameAndMaterials.getChildren().add(new Text(tool.toString()));
-        VBox stats = new VBox();
-        stats.getChildren().add(new Text("Durability: " + tool.getDurability()));
-        stats.getChildren().add(new Text("Mining Speed: " + tool.getMiningSpeed()));
-        stats.getChildren().add(new Text("Attack: " + tool.getAttack()));
-        toolStatsContainer.getChildren().add(stats);
     }
 
     private List<Pair<PartType, String>> getMaterials() throws Exception {
@@ -196,6 +174,29 @@ public class MainController {
             }
         }
         return selectedMaterials;
+    }
+
+    private void displayToolStats() {
+        if(tool == null){
+            displayError("No Tool Selected");
+            return;
+        }
+        toolName.setText(tool.toString());
+        toolParts.setText(tool.getPartsString());
+        toolStats.setText(tool.getStatsString());
+        displayToolAbilities();
+    }
+
+    private void displayToolAbilities(){
+        toolAbilitiesVBox.getChildren().clear();
+        for(Ability ability: tool.getAbilities()){
+            toolAbilitiesVBox.getChildren().add(createAbilityBox(ability));
+        }
+    }
+    private Text createAbilityBox(Ability ability){
+        Text abilityBox = new Text(ability.getName() + " - " + ability.getDescription());
+        abilityBox.setStyle("-fx-fill: " + ability.getColor());
+        return abilityBox;
     }
 
     private PartType getSelectedPartType(String boxName) {

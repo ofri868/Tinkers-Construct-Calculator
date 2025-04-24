@@ -13,12 +13,12 @@ public class Soularium extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(1555);
-            case HANDLE -> setDurability(1500);
-            case EXTRA -> setDurability(1250);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 1555;
+            case HANDLE -> 1500;
+            case EXTRA -> 1250;
+        };
     }
 
     @Override

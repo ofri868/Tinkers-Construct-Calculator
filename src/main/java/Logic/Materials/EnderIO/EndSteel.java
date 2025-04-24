@@ -14,11 +14,11 @@ public class EndSteel extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(400);
-            case HANDLE, EXTRA -> setDurability(50);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 400;
+            case HANDLE, EXTRA -> 50;
+        };
     }
 
     @Override

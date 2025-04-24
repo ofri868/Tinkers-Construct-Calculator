@@ -15,12 +15,12 @@ public class FieryIngot extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(720);
-            case HANDLE -> setDurability(400);
-            case EXTRA -> setDurability(200);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 720;
+            case HANDLE -> 400;
+            case EXTRA -> 200;
+        };
     }
 
     @Override

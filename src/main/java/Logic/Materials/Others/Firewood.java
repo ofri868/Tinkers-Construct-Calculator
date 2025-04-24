@@ -11,12 +11,12 @@ public class Firewood extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(550);
-            case HANDLE -> setDurability(-200);
-            case EXTRA -> setDurability(150);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 550;
+            case HANDLE -> -200;
+            case EXTRA -> 150;
+        };
     }
 
     @Override

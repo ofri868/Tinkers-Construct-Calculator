@@ -11,11 +11,11 @@ public class PulsatingIron extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(920);
-            case HANDLE, EXTRA -> setDurability(250);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 920;
+            case HANDLE, EXTRA -> 250;
+        };
     }
 
     @Override

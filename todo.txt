@@ -1,5 +1,6 @@
 this build
-- fix hammer (and probably other advanced tools) not calculating
+- add the rest of the materials and abilities
+- add ability descriptions
 - make tool parts
 - move attack stat to tool part
 - add toString methods to tools and tool parts

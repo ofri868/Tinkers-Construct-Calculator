@@ -11,12 +11,12 @@ public class BlueSlime extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(780);
-            case HANDLE -> setDurability(-50);
-            case EXTRA -> setDurability(200);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 780;
+            case HANDLE -> -50;
+            case EXTRA -> 200;
+        };
     }
 
     @Override

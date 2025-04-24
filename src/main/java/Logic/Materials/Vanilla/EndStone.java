@@ -12,12 +12,12 @@ public class EndStone extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(420);
-            case HANDLE -> setDurability(0);
-            case EXTRA -> setDurability(42);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 420;
+            case HANDLE -> 0;
+            case EXTRA -> 42;
+        };
     }
 
     @Override

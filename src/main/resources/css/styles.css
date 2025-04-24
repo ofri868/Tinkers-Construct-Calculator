@@ -16,6 +16,24 @@
     -fx-padding: 20;
 }
 
+.tool-name {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 0 0;/* top right bottom left */
+}
+
+.tool-parts {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 0 0 0;/* top right bottom left */
+}
+
+.tool-stats {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 0 10 0;/* top right bottom left */
+}
+
 .label {
     -fx-text-fill: #333;
 }

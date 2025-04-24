@@ -8,16 +8,16 @@ import Logic.Utils.PartType;
 
 public class ConductiveIron extends Material {
     public ConductiveIron() {
-        super("conductive iron", 6.75, MiningLevel.DIAMOND, 1.25, 1.25);
+        super("Conductive Iron", 6.75, MiningLevel.DIAMOND, 1.25, 1.25);
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(106);
-            case HANDLE -> setDurability(100);
-            case EXTRA -> setDurability(250);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 106;
+            case HANDLE -> 100;
+            case EXTRA -> 250;
+        };
     }
 
     @Override

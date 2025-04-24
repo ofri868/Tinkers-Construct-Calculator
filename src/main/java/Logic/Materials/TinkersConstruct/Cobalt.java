@@ -12,12 +12,12 @@ public class Cobalt extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(780);
-            case HANDLE -> setDurability(100);
-            case EXTRA -> setDurability(300);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 780;
+            case HANDLE -> 100;
+            case EXTRA -> 300;
+        };
     }
 
     @Override

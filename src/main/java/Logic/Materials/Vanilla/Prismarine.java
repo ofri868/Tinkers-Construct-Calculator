@@ -12,12 +12,12 @@ public class Prismarine extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(430);
-            case HANDLE -> setDurability(-150);
-            case EXTRA -> setDurability(100);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 430;
+            case HANDLE -> -150;
+            case EXTRA -> 100;
+        };
     }
 
     @Override

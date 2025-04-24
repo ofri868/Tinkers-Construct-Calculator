@@ -12,12 +12,12 @@ public class Knightslime extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(850);
-            case HANDLE -> setDurability(500);
-            case EXTRA -> setDurability(125);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 850;
+            case HANDLE -> 500;
+            case EXTRA -> 125;
+        };
     }
 
     @Override

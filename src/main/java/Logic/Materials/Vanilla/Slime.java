@@ -11,12 +11,12 @@ public class Slime extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(1000);
-            case HANDLE -> setDurability(0);
-            case EXTRA -> setDurability(350);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 1000;
+            case HANDLE -> 0;
+            case EXTRA -> 350;
+        };
     }
 
     @Override

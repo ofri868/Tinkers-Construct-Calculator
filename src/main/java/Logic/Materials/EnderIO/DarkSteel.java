@@ -13,12 +13,12 @@ public class DarkSteel extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(550);
-            case HANDLE -> setDurability(150);
-            case EXTRA -> setDurability(250);
-        }
+    public int getDurability(PartType type) {
+        return switch (type){
+            case HEAD -> 550;
+            case HANDLE -> 150;
+            case EXTRA -> 250;
+        };
     }
 
     @Override

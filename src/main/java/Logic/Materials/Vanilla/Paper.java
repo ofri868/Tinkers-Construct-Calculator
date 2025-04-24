@@ -11,12 +11,12 @@ public class Paper extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(12);
-            case HANDLE -> setDurability(5);
-            case EXTRA -> setDurability(15);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 12;
+            case HANDLE -> 5;
+            case EXTRA -> 15;
+        };
     }
 
     @Override

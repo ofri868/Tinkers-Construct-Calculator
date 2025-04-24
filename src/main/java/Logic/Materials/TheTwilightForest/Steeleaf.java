@@ -12,12 +12,12 @@ public class Steeleaf extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(180);
-            case HANDLE -> setDurability(100);
-            case EXTRA -> setDurability(90);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 180;
+            case HANDLE -> 100;
+            case EXTRA -> 90;
+        };
     }
 
     @Override

@@ -12,12 +12,12 @@ public class Cactus extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(210);
-            case HANDLE -> setDurability(20);
-            case EXTRA -> setDurability(50);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 210;
+            case HANDLE -> 20;
+            case EXTRA -> 50;
+        };
     }
 
     @Override

@@ -12,12 +12,12 @@ public class KnightmetalIngot extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(900);
-            case HANDLE -> setDurability(100);
-            case EXTRA -> setDurability(400);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 900;
+            case HANDLE -> 100;
+            case EXTRA -> 400;
+        };
     }
 
     @Override

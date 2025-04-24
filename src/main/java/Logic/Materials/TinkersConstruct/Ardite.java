@@ -12,12 +12,12 @@ public class Ardite extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(990);
-            case HANDLE -> setDurability(-200);
-            case EXTRA -> setDurability(450);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 990;
+            case HANDLE -> -200;
+            case EXTRA -> 450;
+        };
     }
 
     @Override

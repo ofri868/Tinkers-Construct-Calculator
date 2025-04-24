@@ -12,12 +12,12 @@ public class PigIron extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(380);
-            case HANDLE -> setDurability(0);
-            case EXTRA -> setDurability(170);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 380;
+            case HANDLE -> 0;
+            case EXTRA -> 170;
+        };
     }
 
     @Override

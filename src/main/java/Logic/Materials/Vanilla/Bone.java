@@ -12,12 +12,12 @@ public class Bone extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(200);
-            case HANDLE -> setDurability(50);
-            case EXTRA -> setDurability(65);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 200;
+            case HANDLE -> 50;
+            case EXTRA -> 65;
+        };
     }
 
     @Override

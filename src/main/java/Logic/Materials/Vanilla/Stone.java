@@ -12,12 +12,12 @@ public class Stone extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(120);
-            case HANDLE -> setDurability(-50);
-            case EXTRA -> setDurability(20);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 120;
+            case HANDLE -> -50;
+            case EXTRA -> 20;
+        };
     }
 
     @Override

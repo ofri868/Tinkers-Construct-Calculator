@@ -5,10 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Text?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controllers.MainController">
-
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.MainController">
     <top>
         <VBox spacing="4" alignment="CENTER" >
             <ImageView fx:id="logoImage"
@@ -20,7 +17,6 @@
             <Text text="Tool stat calculator" styleClass="title-label"/>
         </VBox>
     </top>
-
     <center>
         <VBox spacing="5">
             <Label text="Tool:"/>
@@ -28,7 +24,15 @@
             <Text fx:id="errorLabel" styleClass="error-label"/>
             <HBox fx:id="materialOptionsContainer" alignment="CENTER_LEFT"/>
             <Button fx:id="calculateButton" text="Calculate" alignment="CENTER"/>
-            <HBox fx:id="toolStatsContainer" alignment="CENTER_LEFT"/>
+            <HBox fx:id="toolStatsContainer" alignment="CENTER_LEFT">
+                <VBox>
+                    <Text fx:id="toolName" styleClass="tool-name"/>
+                    <Text fx:id="toolParts" styleClass="tool-parts"/>
+                    <Text fx:id="toolStats" styleClass="tool-stats"/>
+                </VBox>
+                <VBox fx:id="toolAbilitiesVBox">
+                </VBox>
+            </HBox>
         </VBox>
     </center>
 </BorderPane>

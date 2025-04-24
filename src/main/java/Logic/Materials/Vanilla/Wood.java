@@ -11,12 +11,12 @@ public class Wood extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(35);
-            case HANDLE -> setDurability(25);
-            case EXTRA -> setDurability(15);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 35;
+            case HANDLE -> 25;
+            case EXTRA -> 15;
+        };
     }
 
     @Override

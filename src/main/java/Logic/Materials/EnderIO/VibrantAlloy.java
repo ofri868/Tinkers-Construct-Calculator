@@ -8,16 +8,16 @@ import Logic.Utils.PartType;
 
 public class VibrantAlloy extends Material {
     public VibrantAlloy() {
-        super("vibrant alloy", 3.5, MiningLevel.COBALT, 9, 0.5);
+        super("Vibrant Alloy", 3.5, MiningLevel.COBALT, 9, 0.5);
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(220);
-            case HANDLE -> setDurability(-50);
-            case EXTRA -> setDurability(60);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 220;
+            case HANDLE -> -50;
+            case EXTRA -> 60;
+        };
     }
 
     @Override

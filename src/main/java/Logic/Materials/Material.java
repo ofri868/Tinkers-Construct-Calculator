@@ -10,7 +10,6 @@ import Logic.Utils.PartType;
 
 public abstract class Material {
     protected final String name;
-    protected int durability;
     protected final double miningSpeed;
     protected final MiningLevel miningLevel;
     protected final double baseDamage;
@@ -36,9 +35,7 @@ public abstract class Material {
         abilities = new ArrayList<>();
     }
     public String getName(){return name;}
-    public int getDurability(){return durability;}
-    public abstract void setDurability(PartType type);
-    public void setDurability(int durability) {this.durability = durability;}
+    public abstract int getDurability(PartType type);
     public double getMiningSpeed(){return miningSpeed;}
     public MiningLevel getMiningLevel(){return miningLevel;}
     public double getBaseDamage(){return baseDamage;}
@@ -72,5 +69,10 @@ public abstract class Material {
             e.printStackTrace();
         }
         throw new IllegalArgumentException("material not found!");
+    }
+
+    @Override
+    public String toString(){
+        return name;
     }
 }

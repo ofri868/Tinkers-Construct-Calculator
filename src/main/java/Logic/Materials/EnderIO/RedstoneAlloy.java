@@ -9,16 +9,16 @@ import Logic.Utils.PartType;
 
 public class RedstoneAlloy extends Material {
     public RedstoneAlloy() {
-        super("redstone alloy", 2.5, MiningLevel.STONE, 1.5, 1);
+        super("Redstone Alloy", 2.5, MiningLevel.STONE, 1.5, 1);
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(120);
-            case HANDLE -> setDurability(-5);
-            case EXTRA -> setDurability(150);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 120;
+            case HANDLE -> -5;
+            case EXTRA -> 150;
+        };
     }
 
     @Override

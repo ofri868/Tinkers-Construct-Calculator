@@ -12,8 +12,8 @@ public class NagaScale extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        setDurability(460);
+    public int getDurability(PartType type) {
+        return 460;
     }
 
     @Override

@@ -11,11 +11,11 @@ public class Sponge extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(1050);
-            case HANDLE, EXTRA -> setDurability(250);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 1050;
+            case HANDLE, EXTRA -> 250;
+        };
     }
 
     @Override

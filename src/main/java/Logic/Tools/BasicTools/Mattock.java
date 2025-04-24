@@ -1,29 +1,39 @@
 package Logic.Tools.BasicTools;
 
-import Logic.Parts.ToolPart;
+import Logic.Parts.ToolParts.Handles.ToolRod;
+import Logic.Parts.ToolParts.Heads.AxeHead;
+import Logic.Parts.ToolParts.Heads.ShovelHead;
 import Logic.Tools.Tool;
 
 public class Mattock extends Tool {
-    private final ToolPart shovelHead;
+    private final ShovelHead shovelHead;
 
-    public Mattock(String toolName, ToolPart head, ToolPart shovelHead, ToolPart handle) {
-        super(toolName, head, handle);
+    public Mattock(AxeHead head, ShovelHead shovelHead, ToolRod handle) {
+        super("Mattock", head, handle);
         this.shovelHead = shovelHead;
+        calculateDurability();
+        calculateMiningSpeed();
+        calculateAttack();
         calculateAbilities();
     }
 
     @Override
     public void calculateDurability() {
-        durability = (int)((head.getMaterial().getDurability() + shovelHead.getMaterial().getDurability()) * 0.75 * handle.getMaterial().getHandleModifier());
+        durability = (int)((head.getDurability() + shovelHead.getDurability()) * 0.75 * handle.getHandleModifier());
     }
 
     @Override
     public void calculateMiningSpeed() {
-        miningSpeed = handle.getMaterial().getMiningSpeed();
+        miningSpeed = head.getMiningSpeed();
     }
 
     @Override
     public void calculateAttack() {
-        attack = head.getMaterial().getBaseDamage() + 2;
+        attack = head.getAttack() + 2;
+    }
+
+    @Override
+    public String getPartsString(){
+        return head + "\n" + shovelHead + "\n" + handle;
     }
 }

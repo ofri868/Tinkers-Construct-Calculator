@@ -11,12 +11,12 @@ public class Flint extends Material {
     }
 
     @Override
-    public void setDurability(PartType type) {
-        switch (type){
-            case HEAD -> setDurability(150);
-            case HANDLE -> setDurability(-60);
-            case EXTRA -> setDurability(40);
-        }
+    public int getDurability(PartType type) {
+        return switch (type) {
+            case HEAD -> 150;
+            case HANDLE -> -60;
+            case EXTRA -> 40;
+        };
     }
 
     @Override
