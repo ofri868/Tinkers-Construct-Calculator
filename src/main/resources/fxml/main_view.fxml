@@ -30,7 +30,7 @@
                     <Text fx:id="toolParts" styleClass="tool-parts"/>
                     <Text fx:id="toolStats" styleClass="tool-stats"/>
                 </VBox>
-                <VBox fx:id="toolAbilitiesVBox">
+                <VBox fx:id="toolAbilitiesVBox" styleClass="tool-abilities-box">
                 </VBox>
             </HBox>
         </VBox>

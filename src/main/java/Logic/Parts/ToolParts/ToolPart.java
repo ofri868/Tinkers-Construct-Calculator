@@ -14,6 +14,7 @@ public abstract class ToolPart {
         this.partType = partType;
         this.material = material;
         durability = material.getDurability(partType);
+        material.setAbilities(partType);
     }
     public PartType getPartType() { return partType; }
     public Material getMaterial() { return material; }

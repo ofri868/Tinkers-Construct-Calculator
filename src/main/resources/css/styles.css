@@ -30,8 +30,12 @@
 
 .tool-stats {
     -fx-font-size: 16px;
-    -fx-font-weight: bold;
     -fx-padding: 5 0 10 0;/* top right bottom left */
+}
+
+.tool-abilities-box{
+    -fx-font-size: 16px;
+    -fx-padding: 0 0 0 20;
 }
 
 .label {

@@ -195,7 +195,7 @@ public class MainController {
     }
     private Text createAbilityBox(Ability ability){
         Text abilityBox = new Text(ability.getName() + " - " + ability.getDescription());
-        abilityBox.setStyle("-fx-fill: " + ability.getColor());
+//        abilityBox.setStyle("-fx-fill: " + ability.getColor());
         return abilityBox;
     }
 

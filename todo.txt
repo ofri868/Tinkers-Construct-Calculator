@@ -1,9 +1,5 @@
 this build
-- add the rest of the materials and abilities
 - add ability descriptions
-- make tool parts
-- move attack stat to tool part
-- add toString methods to tools and tool parts
 
 next builds
 - make comparison feature
