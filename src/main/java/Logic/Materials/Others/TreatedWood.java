@@ -21,6 +21,6 @@ public class TreatedWood extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Ecological(1));
+        abilities.add(new Ecological("red"));
     }
 }

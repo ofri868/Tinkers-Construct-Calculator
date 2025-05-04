@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class ColdBlooded extends Ability{
-    public ColdBlooded(int level) {
-        super("Cold-Blooded", "", "", level);
+    public ColdBlooded(String color) {
+        super("Cold-Blooded", color, "");
     }
 }

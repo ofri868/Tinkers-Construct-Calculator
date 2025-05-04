@@ -23,10 +23,10 @@ public class VibrantAlloy extends Material {
     @Override
     public void setAbilities(PartType type) {
         if (type == PartType.HANDLE) {
-            abilities.add(new Vanishing(2));
+            abilities.add(new Vanishing(2, "#b3f64c"));
         }
         else {
-            abilities.add(new Direct(1));
+            abilities.add(new Direct("#b3f64c"));
         }
     }
 }

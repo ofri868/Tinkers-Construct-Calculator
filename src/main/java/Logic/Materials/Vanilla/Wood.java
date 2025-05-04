@@ -21,6 +21,6 @@ public class Wood extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        addAbility(new Ecological(1));
+        addAbility(new Ecological("brown"));
     }
 }

@@ -23,8 +23,8 @@ public class Steel extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type) {
-            case HEAD -> abilities.add(new Sharp(1));
-            case HANDLE, EXTRA -> abilities.add(new Stiff(1));
+            case HEAD -> abilities.add(new Sharp("#9c9c9c"));
+            case HANDLE, EXTRA -> abilities.add(new Stiff("#9c9c9c"));
         }
     }
 }

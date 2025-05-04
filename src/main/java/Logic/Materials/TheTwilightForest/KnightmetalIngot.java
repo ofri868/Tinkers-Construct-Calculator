@@ -22,7 +22,7 @@ public class KnightmetalIngot extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Twilit(1));
-        abilities.add(new Stalwart(1));
+        abilities.add(new Twilit("#a1edb7"));
+        abilities.add(new Stalwart("#a1edb7"));
     }
 }

@@ -21,6 +21,6 @@ public class Silver extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Holy(1));
+        abilities.add(new Holy("#b6b6b6"));
     }
 }

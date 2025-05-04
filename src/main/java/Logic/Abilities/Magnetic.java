@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
-public class Magnetic extends Ability {
-    public Magnetic(int level) {
-        super("Magnetic", "", "", level);
+public class Magnetic extends StackableAbility {
+    public Magnetic(int level, String color) {
+        super("Magnetic", color, "", level, 2);
     }
 }

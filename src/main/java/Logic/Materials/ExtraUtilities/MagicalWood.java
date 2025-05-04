@@ -22,7 +22,7 @@ public class MagicalWood extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new MagicallyModifiable(1));
-        abilities.add(new MagicallyBrittle(1));
+        abilities.add(new MagicallyModifiable("brown"));
+        abilities.add(new MagicallyBrittle("brown"));
     }
 }

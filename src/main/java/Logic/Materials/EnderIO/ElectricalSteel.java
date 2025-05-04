@@ -23,8 +23,8 @@ public class ElectricalSteel extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Shocking(1));
-            case HANDLE, EXTRA -> abilities.add(new Lightweight(1));
+            case HEAD -> abilities.add(new Shocking("grey"));
+            case HANDLE, EXTRA -> abilities.add(new Lightweight("grey"));
         }
     }
 }

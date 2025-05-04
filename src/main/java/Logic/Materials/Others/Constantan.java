@@ -20,6 +20,6 @@ public class Constantan extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new ThermalInversion(1));
+        abilities.add(new ThermalInversion("orange"));
     }
 }

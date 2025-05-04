@@ -20,6 +20,6 @@ public class Sponge extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Squeaky(1));
+        abilities.add(new Squeaky("#daff54"));
     }
 }

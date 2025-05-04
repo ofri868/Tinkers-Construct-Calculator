@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
-public class Writeable extends Ability{
-    public Writeable(int level){
-        super("writeable", "", "", level);
+public class Writeable extends StackableAbility{
+    public Writeable(int level, String color){
+        super("writeable", color, "", level, 2);
     }
 }

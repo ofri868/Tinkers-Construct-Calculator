@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Slimey extends Ability {
-    public Slimey(int level) {
-        super("Slimey", "", "", level);
+    public Slimey(String color) {
+        super("Slimey", color, "");
     }
 }

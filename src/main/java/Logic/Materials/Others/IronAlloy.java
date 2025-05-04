@@ -20,6 +20,6 @@ public class IronAlloy extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Cheapskate(1));
+        abilities.add(new Cheapskate("grey"));
     }
 }

@@ -23,8 +23,8 @@ public class EndStone extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Alien(1));
-            case HANDLE, EXTRA -> abilities.add(new Enderference(1));
+            case HEAD -> abilities.add(new Alien("#EEDC82"));
+            case HANDLE, EXTRA -> abilities.add(new Enderference("#EEDC82"));
         }
     }
 }

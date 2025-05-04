@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Prickly extends Ability {
-    public Prickly(int level) {
-        super("Prickly", "", "", level);
+    public Prickly(String color) {
+        super("Prickly", color, "");
     }
 }

@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Stiff extends Ability{
-    public Stiff(int level){
-        super("Stiff", "", "", level);
+    public Stiff(String color){
+        super("Stiff", color, "");
     }
 }

@@ -23,8 +23,8 @@ public class ConductiveIron extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Crude(2));
-            case HANDLE, EXTRA -> abilities.add(new Lightweight(1));
+            case HEAD -> abilities.add(new Crude(2, "pink"));
+            case HANDLE, EXTRA -> abilities.add(new Lightweight("pink"));
         }
     }
 }

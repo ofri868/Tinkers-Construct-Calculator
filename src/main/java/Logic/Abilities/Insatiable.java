@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Insatiable extends Ability{
-    public Insatiable(int level) {
-        super("Insatiable", "", "", level);
+    public Insatiable(String color) {
+        super("Insatiable", color, "");
     }
 }

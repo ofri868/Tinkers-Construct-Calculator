@@ -1,5 +1,6 @@
 this build
 - add ability descriptions
+- change abilities to inherit their color from the material
 
 next builds
 - make comparison feature

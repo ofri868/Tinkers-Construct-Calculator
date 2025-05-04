@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Poisonous extends Ability{
-    public Poisonous(int level){
-        super("Poisonous", "","", level);
+    public Poisonous(String color){
+        super("Poisonous", color,"");
     }
 }

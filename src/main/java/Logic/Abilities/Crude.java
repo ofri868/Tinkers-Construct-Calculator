@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
-public class Crude extends Ability{
-    public Crude(int level){
-        super("crude", "", "", level);
+public class Crude extends StackableAbility{
+    public Crude(int level, String color){
+        super("crude", color, "", level, 2);
     }
 }

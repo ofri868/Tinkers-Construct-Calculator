@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class WellEstablished extends Ability{
-    public WellEstablished(int level) {
-        super("Well-Established", "", "", level);
+    public WellEstablished(String color) {
+        super("Well-Established", color, "");
     }
 }

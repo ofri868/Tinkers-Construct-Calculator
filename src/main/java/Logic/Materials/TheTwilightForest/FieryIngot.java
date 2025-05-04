@@ -27,14 +27,14 @@ public class FieryIngot extends Material {
     public void setAbilities(PartType type) {
         switch (type){
             case HEAD -> {
-                abilities.add(new Twilit(1));
-                abilities.add(new Autosmelt(1));
-                abilities.add(new Superheat(1));
-                abilities.add(new Flammable(1));
+                abilities.add(new Twilit("#ff4f00"));
+                abilities.add(new Autosmelt("#ff4f00"));
+                abilities.add(new Superheat("#ff4f00"));
+                abilities.add(new Flammable("#ff4f00"));
             }
             case HANDLE, EXTRA -> {
-                abilities.add(new Twilit(1));
-                abilities.add(new Flammable(1));
+                abilities.add(new Twilit("#ff4f00"));
+                abilities.add(new Flammable("#ff4f00"));
             }
         }
     }

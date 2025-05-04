@@ -23,8 +23,8 @@ public class Cactus extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Prickly(1));
-            case HANDLE, EXTRA -> abilities.add(new Spiky(1));
+            case HEAD -> abilities.add(new Prickly("green"));
+            case HANDLE, EXTRA -> abilities.add(new Spiky("green"));
         }
     }
 }

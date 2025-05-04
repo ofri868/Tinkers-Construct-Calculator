@@ -20,6 +20,6 @@ public class Plastic extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Stonebound(1));
+        abilities.add(new Stonebound("grey"));
     }
 }

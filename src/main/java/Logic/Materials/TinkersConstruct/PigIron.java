@@ -24,10 +24,10 @@ public class PigIron extends Material {
     public void setAbilities(PartType type) {
         switch (type){
             case HEAD -> {
-                abilities.add(new Baconlicious(1));
-                abilities.add(new Tasty(1));
+                abilities.add(new Baconlicious("pink"));
+                abilities.add(new Tasty("pink"));
             }
-            case HANDLE, EXTRA -> abilities.add(new Tasty(1));
+            case HANDLE, EXTRA -> abilities.add(new Tasty("pink"));
         }
     }
 }

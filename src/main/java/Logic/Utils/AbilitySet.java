@@ -14,7 +14,7 @@ public class AbilitySet extends HashSet<Ability> {
             while (iter.hasNext()){
                 Ability a = iter.next();
                 if (a.equals(ability)){
-                    prevLevel = a.getLevel();
+                    prevLevel = ((StackableAbility)a).getLevel();
                     break;
                 }
             }

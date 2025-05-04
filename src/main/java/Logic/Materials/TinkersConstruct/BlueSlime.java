@@ -21,6 +21,6 @@ public class BlueSlime extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Slimey(1));
+        abilities.add(new Slimey("blue"));
     }
 }

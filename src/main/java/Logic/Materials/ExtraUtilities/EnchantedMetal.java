@@ -21,6 +21,6 @@ public class EnchantedMetal extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new ExperienceBoost(1));
+        abilities.add(new ExperienceBoost("#7ff80d"));
     }
 }

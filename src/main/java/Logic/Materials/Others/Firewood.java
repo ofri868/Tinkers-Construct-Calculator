@@ -21,6 +21,6 @@ public class Firewood extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Autosmelt(1));
+        abilities.add(new Autosmelt("red"));
     }
 }

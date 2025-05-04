@@ -22,7 +22,7 @@ public class DemonicMetal extends Material {
     @Override
     public void setAbilities(PartType type) {
         if (type == PartType.HEAD) {
-            abilities.add(new Whispering(1));
+            abilities.add(new Whispering("orange"));
         }
     }
 }

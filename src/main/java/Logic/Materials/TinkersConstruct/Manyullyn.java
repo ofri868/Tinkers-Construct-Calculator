@@ -23,8 +23,8 @@ public class Manyullyn extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Insatiable(1));
-            case HANDLE, EXTRA -> abilities.add(new ColdBlooded(1));
+            case HEAD -> abilities.add(new Insatiable("purple"));
+            case HANDLE, EXTRA -> abilities.add(new ColdBlooded("purple"));
         }
     }
 }

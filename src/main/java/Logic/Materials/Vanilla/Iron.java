@@ -23,8 +23,8 @@ public class Iron extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Magnetic(2));
-            case HANDLE, EXTRA -> abilities.add(new Magnetic(1));
+            case HEAD -> abilities.add(new Magnetic(2, "grey"));
+            case HANDLE, EXTRA -> abilities.add(new Magnetic(1, "grey"));
         }
     }
 }

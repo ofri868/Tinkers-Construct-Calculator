@@ -22,7 +22,7 @@ public class Lead extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Poisonous(1));
-        abilities.add(new Heavy(1));
+        abilities.add(new Poisonous("#553c62"));
+        abilities.add(new Heavy("#553c62"));
     }
 }

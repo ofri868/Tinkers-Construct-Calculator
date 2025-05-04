@@ -25,10 +25,10 @@ public class EndSteel extends Material {
     public void setAbilities(PartType type) {
         switch (type){
             case HEAD -> {
-                abilities.add(new Enderference(1));
-                abilities.add(new Alien(1));
+                abilities.add(new Enderference("#EEDC82"));
+                abilities.add(new Alien("#EEDC82"));
             }
-            case HANDLE, EXTRA -> abilities.add(new Unnatural(1));
+            case HANDLE, EXTRA -> abilities.add(new Unnatural("#EEDC82"));
         }
     }
 }

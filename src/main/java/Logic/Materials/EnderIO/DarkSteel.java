@@ -24,9 +24,9 @@ public class DarkSteel extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Enderference(1));
-            case HANDLE -> abilities.add(new Unnatural(1));
-            case EXTRA -> abilities.add(new Dense(1));
+            case HEAD -> abilities.add(new Enderference("black"));
+            case HANDLE -> abilities.add(new Unnatural("black"));
+            case EXTRA -> abilities.add(new Dense("black"));
         }
     }
 }

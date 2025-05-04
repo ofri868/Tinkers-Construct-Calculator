@@ -23,8 +23,8 @@ public class Bone extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Splintering(1));
-            case HANDLE, EXTRA -> abilities.add(new Fractured(1));
+            case HEAD -> abilities.add(new Splintering("#f7f8c5"));
+            case HANDLE, EXTRA -> abilities.add(new Fractured("#f7f8c5"));
         }
     }
 }

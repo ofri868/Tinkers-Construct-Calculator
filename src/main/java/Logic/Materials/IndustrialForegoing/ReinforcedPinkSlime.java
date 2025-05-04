@@ -23,10 +23,10 @@ public class ReinforcedPinkSlime extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Slimey(1));
+        abilities.add(new Slimey("pink"));
         switch (type) {
-            case HEAD -> abilities.add(new Dense(1));
-            case HANDLE, EXTRA -> abilities.add(new Unnatural(1));
+            case HEAD -> abilities.add(new Dense("pink"));
+            case HANDLE, EXTRA -> abilities.add(new Unnatural("pink"));
         }
 
     }

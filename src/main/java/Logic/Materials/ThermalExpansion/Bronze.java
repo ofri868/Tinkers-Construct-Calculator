@@ -21,6 +21,6 @@ public class Bronze extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Dense(1));
+        abilities.add(new Dense("#CD7F32"));
     }
 }

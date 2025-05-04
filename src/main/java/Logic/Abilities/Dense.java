@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Dense extends Ability{
-    public Dense(int level) {
-        super("Dense", "", "", level);
+    public Dense(String color) {
+        super("Dense", color, "");
     }
 }

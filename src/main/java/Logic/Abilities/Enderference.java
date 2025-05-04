@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Enderference extends Ability {
-    public Enderference(int level) {
-        super("Enderference", "", "", level);
+    public Enderference(String color) {
+        super("Enderference", color, "");
     }
 }

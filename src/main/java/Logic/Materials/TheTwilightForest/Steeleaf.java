@@ -22,7 +22,7 @@ public class Steeleaf extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Twilit(1));
-        abilities.add(new Synergy(1));
+        abilities.add(new Twilit("green"));
+        abilities.add(new Synergy("green"));
     }
 }

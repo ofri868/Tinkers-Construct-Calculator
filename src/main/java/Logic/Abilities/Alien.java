@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Alien extends Ability{
-    public Alien(int level) {
-        super("Alien", "", "", level);
+    public Alien(String color) {
+        super("Alien", color, "");
     }
 }

@@ -22,7 +22,7 @@ public class Corrupted extends Material {
     @Override
     public void setAbilities(PartType type) {
         if (type == PartType.HEAD) {
-            abilities.add(new Vile(1));
+            abilities.add(new Vile("black"));
         }
     }
 }

@@ -24,9 +24,9 @@ public class EnergeticAlloy extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Unnatural(1));
-            case HANDLE -> abilities.add(new Holy(1));
-            case EXTRA -> abilities.add(new Petramor(1));
+            case HEAD -> abilities.add(new Unnatural("orange"));
+            case HANDLE -> abilities.add(new Holy("orange"));
+            case EXTRA -> abilities.add(new Petramor("orange"));
         }
     }
 }

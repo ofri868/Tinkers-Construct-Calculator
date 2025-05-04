@@ -24,9 +24,9 @@ public class Soularium extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Hellish(1));
-            case HANDLE -> abilities.add(new Flammable(1));
-            case EXTRA -> abilities.add(new Splinters(1));
+            case HEAD -> abilities.add(new Hellish("brown"));
+            case HANDLE -> abilities.add(new Flammable("brown"));
+            case EXTRA -> abilities.add(new Splinters("brown"));
         }
     }
 }

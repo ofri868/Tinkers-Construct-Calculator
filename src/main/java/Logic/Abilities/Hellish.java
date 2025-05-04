@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Hellish extends Ability{
-    public Hellish(int level){
-        super("Hellish", "", "", level);
+    public Hellish(String color){
+        super("Hellish", color, "");
     }
 }

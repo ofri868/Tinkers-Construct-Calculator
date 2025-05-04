@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Tasty extends Ability {
-    public Tasty(int level) {
-        super("Tasty", "", "", level);
+    public Tasty(String color) {
+        super("Tasty", color, "");
     }
 }

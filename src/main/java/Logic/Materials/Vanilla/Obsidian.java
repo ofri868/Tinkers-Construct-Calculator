@@ -21,6 +21,6 @@ public class Obsidian extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Duritae(1));
+        abilities.add(new Duritae("black"));
     }
 }

@@ -24,9 +24,9 @@ public class RedstoneAlloy extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Shocking(1));
-            case HANDLE -> abilities.add(new Writeable(1));
-            case EXTRA -> abilities.add(new Crude(1));
+            case HEAD -> abilities.add(new Shocking("red"));
+            case HANDLE -> abilities.add(new Writeable(1,"red"));
+            case EXTRA -> abilities.add(new Crude(1,"red"));
         }
     }
 }

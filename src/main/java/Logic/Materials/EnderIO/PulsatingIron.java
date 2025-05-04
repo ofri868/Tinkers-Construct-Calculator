@@ -21,8 +21,8 @@ public class PulsatingIron extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Vanishing(3));
-            case HANDLE, EXTRA -> abilities.add(new Vanishing(1));
+            case HEAD -> abilities.add(new Vanishing(3, "#54df90"));
+            case HANDLE, EXTRA -> abilities.add(new Vanishing(1, "#54df90"));
         }
     }
 }

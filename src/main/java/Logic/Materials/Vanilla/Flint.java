@@ -22,8 +22,8 @@ public class Flint extends Material {
     @Override
     public void setAbilities(PartType type) {
         switch (type){
-            case HEAD -> abilities.add(new Crude(2));
-            case HANDLE, EXTRA -> abilities.add(new Crude(1));
+            case HEAD -> abilities.add(new Crude(2, "black"));
+            case HANDLE, EXTRA -> abilities.add(new Crude(1, "black"));
         }
     }
 }

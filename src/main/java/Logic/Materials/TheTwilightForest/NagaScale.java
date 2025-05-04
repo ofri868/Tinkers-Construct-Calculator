@@ -18,7 +18,7 @@ public class NagaScale extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Twilit(1));
-        abilities.add(new Precipitate(1));
+        abilities.add(new Twilit("green"));
+        abilities.add(new Precipitate("green"));
     }
 }

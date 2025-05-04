@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Synergy extends Ability {
-    public Synergy(int level) {
-        super("Synergy", "", "", level);
+    public Synergy(String color) {
+        super("Synergy", color, "");
     }
 }

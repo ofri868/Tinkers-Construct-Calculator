@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Direct extends Ability{
-    public Direct(int level) {
-        super("direct", "", "", level);
+    public Direct(String color) {
+        super("direct", color, "");
     }
 }

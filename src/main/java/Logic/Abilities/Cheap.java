@@ -1,7 +1,7 @@
 package Logic.Abilities;
 
 public class Cheap extends Ability {
-    public Cheap(int level) {
-        super("Cheap", "", "", level);
+    public Cheap(String color) {
+        super("Cheap", color, "");
     }
 }

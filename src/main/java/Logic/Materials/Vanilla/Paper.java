@@ -21,6 +21,6 @@ public class Paper extends Material {
 
     @Override
     public void setAbilities(PartType type) {
-        abilities.add(new Writeable(1));
+        abilities.add(new Writeable(1, "white"));
     }
 }

@@ -22,7 +22,7 @@ public class EvilInfusedIron extends Material {
     @Override
     public void setAbilities(PartType type) {
         if (type == PartType.HEAD) {
-            abilities.add(new EvilAura(1));
+            abilities.add(new EvilAura("black"));
         }
     }
 }
