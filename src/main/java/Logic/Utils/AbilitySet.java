@@ -9,17 +9,14 @@ import java.util.Iterator;
 public class AbilitySet extends HashSet<Ability> {
     public boolean add(StackableAbility ability){
         if (super.contains(ability)){
-            int prevLevel = 0;
             Iterator<Ability> iter = super.iterator();
             while (iter.hasNext()){
                 Ability a = iter.next();
-                if (a.equals(ability)){
-                    prevLevel = ((StackableAbility)a).getLevel();
-                    break;
+                if (a.getClass().equals(ability.getClass())){
+                    ((StackableAbility)a).setLevel(((StackableAbility) a).getLevel() + ability.getLevel());
+                    return true;
                 }
             }
-            super.remove(ability);
-            ability.setLevel(ability.getLevel()+prevLevel);
         }
         return super.add(ability);
     }

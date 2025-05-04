@@ -15,6 +15,6 @@ public abstract class StackableAbility extends Ability {
         return maxLevel;
     }
     public void setLevel(int level) {
-        this.level = level;
+        this.level = Math.min(level, maxLevel);
     }
 }
