@@ -15,6 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
@@ -195,7 +196,9 @@ public class MainController {
     }
     private Text createAbilityBox(Ability ability){
         Text abilityBox = new Text(ability.getName() + " - " + ability.getDescription());
-//        abilityBox.setStyle("-fx-fill: " + ability.getColor());
+        toolStats.setTextAlignment(TextAlignment.LEFT);
+//        toolStats.setWrappingWidth(300);
+        abilityBox.setStyle("-fx-fill: " + ability.getColor());
         return abilityBox;
     }
 
