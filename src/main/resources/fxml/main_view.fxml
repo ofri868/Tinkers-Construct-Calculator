@@ -24,13 +24,13 @@
             <Text fx:id="errorLabel" styleClass="error-label"/>
             <HBox fx:id="materialOptionsContainer" alignment="CENTER_LEFT"/>
             <Button fx:id="calculateButton" text="Calculate" alignment="CENTER"/>
-            <HBox fx:id="toolStatsContainer" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT">
                 <VBox>
                     <Text fx:id="toolName" styleClass="tool-name"/>
                     <Text fx:id="toolParts" styleClass="tool-parts"/>
                     <Text fx:id="toolStats" styleClass="tool-stats"/>
                 </VBox>
-                <VBox fx:id="toolAbilitiesVBox" styleClass="tool-abilities-box">
+                <VBox fx:id="toolAbilitiesVBox" styleClass="tool-abilities-box" maxWidth="200">
                 </VBox>
             </HBox>
         </VBox>

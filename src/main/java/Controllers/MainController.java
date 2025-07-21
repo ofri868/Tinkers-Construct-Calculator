@@ -15,7 +15,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +25,7 @@ public class MainController {
     @FXML
     private ComboBox<String> toolComboBox;
     @FXML
-    private HBox materialOptionsContainer, toolStatsContainer;
+    private HBox materialOptionsContainer;
     @FXML
     private VBox toolAbilitiesVBox;
     @FXML
@@ -194,10 +193,10 @@ public class MainController {
             toolAbilitiesVBox.getChildren().add(createAbilityBox(ability));
         }
     }
+    
     private Text createAbilityBox(Ability ability){
         Text abilityBox = new Text(ability.getName() + " - " + ability.getDescription());
-        toolStats.setTextAlignment(TextAlignment.LEFT);
-//        toolStats.setWrappingWidth(300);
+        abilityBox.setWrappingWidth(500);
         abilityBox.setStyle("-fx-fill: " + ability.getColor());
         return abilityBox;
     }
