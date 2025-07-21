@@ -1,5 +1,5 @@
 this build
-- add ability descriptions
+- add ability descriptions for: direct, evilAura, experienceBoost, heavy, splinters, vanishing, vile
 
 next builds
 - make comparison feature
