@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Pair;
 import java.util.ArrayList;
@@ -116,11 +117,11 @@ public class MainController {
 
     private VBox createLabelWithComboBox(String labelText) {
         VBox vbox = new VBox(5); // 5 is the spacing between the label and combo box
-        vbox.setPadding(new Insets(10, 10, 10, 10)); // Padding: top, right, bottom, left
+        vbox.setPadding(new Insets(0, 20, 10, 0)); // Padding: top, right, bottom, left
         Label label = new Label(labelText);
-        label.setPadding(new Insets(5, 5, 5, 5)); // Optional: add padding to the label itself
+        label.setPadding(new Insets(0, 15, 5, 5)); // Optional: add padding to the label itself
         ComboBox<String> comboBox = createMaterialDropdown(labelText);
-        comboBox.setPadding(new Insets(5, 5, 5, 5)); // Optional: add padding to the combo box
+        comboBox.setPadding(new Insets(10, 15, 5, 5)); // Optional: add padding to the combo box
         vbox.getChildren().addAll(label, comboBox);
         return vbox;
     }
@@ -198,6 +199,7 @@ public class MainController {
         Text abilityBox = new Text(ability.getName() + " - " + ability.getDescription());
         abilityBox.setWrappingWidth(500);
         abilityBox.setStyle("-fx-fill: " + ability.getColor());
+        abilityBox.setFont(new Font(16));
         return abilityBox;
     }
 

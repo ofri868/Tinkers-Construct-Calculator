@@ -2,6 +2,6 @@ package Logic.Abilities;
 
 public class Unnatural extends Ability {
     public Unnatural(String color) {
-        super("unnatural", color, "36% bonus mining speed for every harvest level tool has above block you are breaking.");
+        super("Unnatural", color, "36% bonus mining speed for every harvest level tool has above block you are breaking.");
     }
 }

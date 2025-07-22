@@ -1,6 +1,7 @@
 # Maven build directory
 /target/
-
+/dist
+/runtime
 todo.txt
 
 # IntelliJ IDEA
