@@ -1,0 +1,3 @@
+command for creating new build:
+jpackage --type app-image --name TinkersConstructCalculator --input target --main-jar tinkers-construct-calculator-1.0.jar --main-class Main --runtime-image runtime  --dest dist
+
