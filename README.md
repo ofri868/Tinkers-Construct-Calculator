@@ -10,7 +10,7 @@ A desktop application for calculating and comparing tool stats from the Tinker's
 - [Questions & Support](#questions--support)
 
 <a name="features"></a>
-## ✨ Features
+## Features
 
 - 🧱 Select and customize tool parts
 - 📊 View stats in real time
@@ -19,7 +19,7 @@ A desktop application for calculating and comparing tool stats from the Tinker's
 
 ---
 
-## 📦 Download
+## Download
 
 ### Option 1: Pre-built App
 
@@ -48,7 +48,7 @@ java -jar tinkers-construct-calculator-1.0.jar
 
 ---
 
-## 🚀 How to Use
+## How to Use
 
 1. Launch the app.
 2. Choose tool from the dropdown menu.
@@ -58,7 +58,7 @@ java -jar tinkers-construct-calculator-1.0.jar
 Perfect for theorycrafting and optimizing Tinker's Construct tools without even opening Minecraft.
 
 ---
-## ❓ Questions & Support
+## Questions & Support
 
 - 📧 Contact: ofri0101@gmail.com
 - 💬 Report bugs or ask questions: [GitHub Issues](https://github.com/ofri868/tinkers-construct-calculator/issues)
