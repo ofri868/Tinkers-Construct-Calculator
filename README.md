@@ -23,7 +23,7 @@ A desktop application for calculating and comparing tool stats from the Tinker's
 
 ### Option 1: Pre-built App
 
-1. Download the `.zip` file from the latest release
+1. Download the `.zip` file from the [latest release](https://github.com/ofri868/Tinkers-Construct-Calculator/releases)
 2. Extract the `.zip` file
 3. Inside the extracted folder, run `TinkersConstructCalculator.exe`
 
