@@ -2,8 +2,8 @@
 /target/
 
 # build
-/dist
-/runtime
+/dist/
+/runtime/
 todo.txt
 utils.txt
 TinkersConstructCalculator.zip
