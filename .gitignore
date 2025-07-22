@@ -1,9 +1,12 @@
 # Maven build directory
 /target/
+
+# build
 /dist
 /runtime
 todo.txt
 utils.txt
+TinkersConstructCalculator.zip
 
 # IntelliJ IDEA
 .idea/
