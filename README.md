@@ -16,6 +16,7 @@ A desktop application for calculating and comparing tool stats from the Tinker's
 - 📊 View stats in real time
 - 🔧 Support for modular material combinations
 - 💡 Lightweight, works offline
+- Support for various mods
 
 ---
 
@@ -56,6 +57,8 @@ java -jar tinkers-construct-calculator-1.0.jar
 4. Press `Calculate` and see calculated tool stats instantly.
 
 Perfect for theorycrafting and optimizing Tinker's Construct tools without even opening Minecraft.
+
+Supported mods: EnderIO, Extra Utilities 2, Industrial Foregoing, Thermal Expansion, The Twilight Forest
 
 ---
 ## Questions & Support
