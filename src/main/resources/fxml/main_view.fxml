@@ -5,34 +5,49 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Text?>
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.MainController">
-    <top>
-        <VBox spacing="4" alignment="CENTER" >
-            <ImageView fx:id="logoImage"
-                       fitHeight="100"
-                       preserveRatio="true"
-                       pickOnBounds="true">
-                <Image url="@/images/tinkers_construct_logo_2f7.png"/>
-            </ImageView>
-            <Text text="Tool stat calculator" styleClass="title-label"/>
-        </VBox>
-    </top>
-    <center>
-        <VBox spacing="5">
-            <Label text="Tool:"/>
-            <ComboBox fx:id="toolComboBox" promptText="Select Tool"/>
-            <Text fx:id="errorLabel" styleClass="error-label"/>
-            <HBox fx:id="materialOptionsContainer" alignment="CENTER_LEFT"/>
-            <Button fx:id="calculateButton" text="Calculate" alignment="CENTER"/>
-            <HBox alignment="CENTER_LEFT">
-                <VBox>
-                    <Text fx:id="toolName" styleClass="tool-name"/>
-                    <Text fx:id="toolParts" styleClass="tool-parts"/>
-                    <Text fx:id="toolStats" styleClass="tool-stats"/>
-                </VBox>
-                <VBox fx:id="toolAbilitiesVBox" styleClass="tool-abilities-box" maxWidth="200">
-                </VBox>
+<StackPane fx:id="mainWindow" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.MainController">
+    <BorderPane>
+        <top>
+            <VBox spacing="4" alignment="CENTER" >
+                <ImageView fx:id="logoImage"
+                           fitHeight="100"
+                           preserveRatio="true"
+                           pickOnBounds="true">
+                    <Image url="@/images/tinkers_construct_logo_2f7.png"/>
+                </ImageView>
+                <Text text="Tool stat calculator" styleClass="title-label"/>
+            </VBox>
+        </top>
+        <center>
+            <VBox spacing="5">
+                <Label text="Tool:"/>
+                <ComboBox fx:id="toolComboBox" promptText="Select Tool"/>
+                <Text fx:id="errorLabel" styleClass="error-label"/>
+                <HBox fx:id="materialOptionsContainer" alignment="CENTER_LEFT"/>
+                <HBox>
+                    <Button fx:id="calculateButton" text="Calculate" alignment="TOP_LEFT"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="compareButton" alignment="TOP_RIGHT"/>
+                </HBox>
+            </VBox>
+        </center>
+        <bottom>
+            <VBox>
+                <HBox alignment="CENTER_LEFT">
+                    <VBox fx:id="toolStatsVBox"/>
+                    <VBox fx:id="toolAbilitiesVBox" styleClass="tool-abilities-box" maxWidth="200"/>
+                </HBox>
+                <Button fx:id="addToComparisonButton" text="add to comparison"/>
+            </VBox>
+        </bottom>
+    </BorderPane>
+    <Pane fx:id="comparisonPane" style="-fx-background-color: white;">
+        <VBox>
+            <HBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="exitButton" text="X" prefWidth="30" prefHeight="30" styleClass="exit-button"/>
             </HBox>
+            <VBox fx:id="comparisonPaneVBox"/>
         </VBox>
-    </center>
-</BorderPane>
+    </Pane>
+</StackPane>
