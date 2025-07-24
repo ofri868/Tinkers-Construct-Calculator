@@ -5,11 +5,15 @@ import Logic.Materials.Material;
 import Logic.Tools.Tool;
 import Logic.Utils.PartType;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Button;
+import javafx.scene.control.Separator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
@@ -21,17 +25,14 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Pair;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+
+import java.util.*;
 
 public class MainController {
     public ImageView logoImage;
     private Tool tool;
-    private final Queue<Tool> toolsToCompare = new LinkedList<>();
-    private final int TOOL_COMPARISON_CAP = 2;
-    private boolean recreateComparison = true;
+    private final ObservableList<Tool> toolsToCompare = FXCollections.observableArrayList();
+    private final int TOOL_COMPARISON_CAP = 3;
     @FXML
     private StackPane mainWindow;
     @FXML
@@ -49,9 +50,13 @@ public class MainController {
 
     @FXML
     public void initialize() {
+        toolsToCompare.addListener((ListChangeListener<Tool>) change -> {
+            while (change.next()) {
+                makeToolComparison();
+                compareButton.setText("Compare (" + toolsToCompare.size() + ")");
+            }
+        });
         comparisonPane.setVisible(false);
-        comparisonPane.prefWidthProperty().bind(mainWindow.widthProperty());
-        comparisonPane.prefHeightProperty().bind(mainWindow.heightProperty());
         toolComboBox.getItems().addAll("Pickaxe", "Shovel", "Hatchet", "Mattock", "Hammer", "Excavator", "Lumber Axe", "Scythe");
         toolComboBox.setOnAction(event -> handleToolSelection(toolComboBox.getValue()));
         calculateButton.setOnAction(event -> {
@@ -59,7 +64,7 @@ public class MainController {
             try{
                 calculateToolStats();
                 addToComparisonButton.setVisible(true);
-                addToComparisonButton.setDisable(false);
+                calculateButton.setDisable(true);
             }
             catch (Exception e){
                 displayError(e.getMessage());
@@ -67,22 +72,12 @@ public class MainController {
             }
 
         });
-        compareButton.setDisable(true);
         compareButton.setText("Compare (" + toolsToCompare.size() + ")");
-        compareButton.setOnAction(event -> {
-            if(recreateComparison){
-                makeToolComparison();
-                recreateComparison = false;
-            }
-            comparisonPane.setVisible(true);
-        });
+        compareButton.setOnAction(event -> comparisonPane.setVisible(true));
         addToComparisonButton.setVisible(false);
         addToComparisonButton.setOnAction(event -> {
            try{
                addToComparison(tool);
-               addToComparisonButton.setDisable(true);
-               compareButton.setDisable(toolsToCompare.size() != 2);
-               recreateComparison = true;
            }
            catch (Exception e){
                displayError(e.getMessage());
@@ -165,6 +160,11 @@ public class MainController {
         label.setPadding(new Insets(0, 15, 5, 5)); // Optional: add padding to the label itself
         ComboBox<String> comboBox = createMaterialDropdown(labelText);
         comboBox.setPadding(new Insets(10, 15, 5, 5)); // Optional: add padding to the combo box
+        comboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if(oldValue != null && !oldValue.equals(newValue)){
+                calculateButton.setDisable(false);
+            }
+        });
         vbox.getChildren().addAll(label, comboBox);
         return vbox;
     }
@@ -177,25 +177,20 @@ public class MainController {
         return materialDropdown;
     }
 
-    private void calculateToolStats(){
+    private void calculateToolStats() throws Exception {
         String selectedTool = toolComboBox.getValue();
         if (selectedTool == null || selectedTool.isEmpty()) {
-            displayError("No Tool Selected");
-            return;
+            throw new Exception("No Tool Selected");
         }
         List<Pair<PartType, String>> selectedMaterials;
-        try{
-            selectedMaterials = getMaterials();
-            List<Pair<PartType, Material>> parts = new ArrayList<>();
-            for (Pair<PartType, String> pair : selectedMaterials) {
-                parts.add(new Pair<>(pair.getKey(), Material.createMaterialInstance(pair.getValue())));
-            }
-            tool = Tool.getTool(toolComboBox.getValue(), parts);
-            displayToolStats();
-            displayToolAbilities();
-        } catch (Exception e){
-            displayError(e.getMessage());
+        selectedMaterials = getMaterials();
+        List<Pair<PartType, Material>> parts = new ArrayList<>();
+        for (Pair<PartType, String> pair : selectedMaterials) {
+            parts.add(new Pair<>(pair.getKey(), Material.createMaterialInstance(pair.getValue())));
         }
+        tool = Tool.getTool(toolComboBox.getValue(), parts);
+        displayToolStats();
+        displayToolAbilities();
     }
 
     private List<Pair<PartType, String>> getMaterials() throws Exception {
@@ -232,12 +227,11 @@ public class MainController {
     }
     
     private Text createAbilityBox(Ability ability){
-        Text abilityBox = new Text(ability.getName() + " - " + ability.getDescription());
+        Text abilityBox = makeText(ability.getName() + " - " + ability.getDescription(), 18, true);
         abilityBox.setWrappingWidth(500);
         abilityBox.setStyle("-fx-fill: " + ability.getColor());
-        abilityBox.setFont(new Font(18));
         abilityBox.setStroke(Color.BLACK);
-        abilityBox.setStrokeWidth(0.3);
+        abilityBox.setStrokeWidth(0.5);
         return abilityBox;
     }
 
@@ -256,26 +250,33 @@ public class MainController {
 
     private void addToComparison(Tool tool) throws Exception {
         if(tool == null){
-            throw new Exception("Select 2 tools to compare");
+            throw new Exception("No tool selected!");
         }
+        if(toolsToCompare.contains(tool)) return;
         if(toolsToCompare.size() == TOOL_COMPARISON_CAP){
-            toolsToCompare.remove();
+            throw new Exception("Maximum number of tools reached.\nRemove a tool from comparison to add another one.");
         }
         toolsToCompare.add(tool);
-        compareButton.setText("Compare (" + toolsToCompare.size() + ")");
-        System.out.println(toolsToCompare);
     }
 
     private void makeToolComparison() {
         comparisonPaneVBox.getChildren().clear();
-        for(Tool tool: toolsToCompare){
+        for(int i = 0; i < toolsToCompare.size(); i++){
+            Tool tool = toolsToCompare.get(i);
             HBox toolDisplay = new HBox();
+            toolDisplay.setId(String.valueOf(i));
             VBox toolStats = new VBox();
             toolStats.getChildren().addAll(makeToolStats(tool));
+            toolStats.getChildren().add(makeRemoveButton(toolDisplay.getId()));
             VBox toolAbilities = new VBox();
             toolAbilities.getStyleClass().add("tool-abilities-box");
             toolAbilities.getChildren().addAll(makeToolAbilities(tool));
             toolDisplay.getChildren().addAll(toolStats, toolAbilities);
+            if(i != 0){
+                Separator separator = new Separator();
+                separator.setOrientation(Orientation.HORIZONTAL);
+                comparisonPaneVBox.getChildren().add(separator);
+            }
             comparisonPaneVBox.getChildren().add(toolDisplay);
         }
     }
@@ -308,5 +309,12 @@ public class MainController {
             toolAbilities.add(createAbilityBox(ability));
         }
         return toolAbilities;
+    }
+
+    private Button makeRemoveButton(String id){
+        Button removeButton = new Button("Remove");
+        removeButton.setOnAction(event -> toolsToCompare.remove(Integer.parseInt(id)));
+        removeButton.getStyleClass().add("remove-button");
+        return removeButton;
     }
 }

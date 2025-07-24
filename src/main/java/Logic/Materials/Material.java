@@ -75,4 +75,12 @@ public abstract class Material {
     public String toString(){
         return name;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Material) {
+            return name.equals(((Material) obj).name);
+        }
+        return false;
+    }
 }

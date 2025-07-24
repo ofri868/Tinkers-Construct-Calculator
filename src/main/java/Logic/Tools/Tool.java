@@ -50,18 +50,30 @@ public abstract class Tool {
         }
         return abilities.toString();
     }
+
     public String getPartsString(){
         return head + "\n" + handle;
     }
+
     public String getStatsString(){
         return "Durability: " + durability + "\n"
                 + "Mining Speed: " + miningSpeed + "\n"
                 + "Attack: " + attack + "\n";
     }
+
     @Override
     public String toString() {
         return head.getMaterial().getName() + " " + getToolName();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Tool other) {
+            return head.equals(other.getHead()) && handle.equals(other.getHandle());
+        }
+        return false;
+    }
+
     public static Tool getTool(String toolName, List<Pair<PartType, Material>> parts) {
         return switch (toolName) {
             case "Pickaxe" -> new Pickaxe(new PickaxeHead(parts.get(0).getKey(), parts.get(0).getValue()), new ToolBinding(parts.get(1).getKey(), parts.get(1).getValue()), new ToolRod(parts.get(2).getKey(), parts.get(2).getValue()));

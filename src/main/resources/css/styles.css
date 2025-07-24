@@ -13,8 +13,37 @@
 .root {
     /*-fx-background-image: url("/images/Tinkers_Construct_-_Fancy_Seared_Bricks.png");*/
     -fx-background-color: #f0f4f8;
+}
+
+.calculator {
     -fx-padding: 20;
 }
+
+.comparison-pane {
+    -fx-background-color: white;
+    -fx-padding: 10;
+}
+
+.scroll-pane {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: white;
+}
+.scroll-pane .scroll-bar {
+    -fx-opacity: 0;
+    -fx-background-color: transparent;
+}
+.scroll-pane:hover .scroll-bar {
+    -fx-opacity: 1;
+}
+
 
 .tool-name {
     -fx-font-size: 18px;
@@ -40,7 +69,16 @@
 }
 
 .exit-button{
-    -fx-background-radius: 15;
+    -fx-background-radius: 12;
+    -fx-background-color: red !important;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-alignment: center;
+    -fx-padding: 0;
+}
+
+.remove-button{
     -fx-background-color: red !important;
     -fx-text-fill: white;
     -fx-font-weight: bold;

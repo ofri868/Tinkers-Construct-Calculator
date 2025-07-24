@@ -25,4 +25,12 @@ public abstract class ToolPart {
     public String toString() {
         return material.toString() + " " + name;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ToolPart toolPart) {
+            return toolPart.getMaterial().equals(getMaterial()) && toolPart.getPartType().equals(getPartType());
+        }
+        return false;
+    }
 }
