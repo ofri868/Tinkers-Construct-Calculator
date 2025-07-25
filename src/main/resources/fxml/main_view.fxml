@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Text?>
-<StackPane fx:id="mainWindow" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.MainController">
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.MainController">
     <BorderPane styleClass="calculator">
         <top>
             <VBox spacing="4" alignment="CENTER" >
@@ -26,7 +26,8 @@
                 <HBox>
                     <Button fx:id="calculateButton" text="Calculate" alignment="TOP_LEFT"/>
                     <Region HBox.hgrow="ALWAYS"/>
-                    <Text fx:id="errorLabel" styleClass="error-label"/>
+                    <Text fx:id="successLabel" styleClass="success-label" visible="false"/>
+                    <Text fx:id="errorLabel" styleClass="error-label" visible="false"/>
                     <Region HBox.hgrow="ALWAYS"/>
                     <Button fx:id="compareButton" alignment="TOP_RIGHT"/>
                 </HBox>
@@ -38,12 +39,12 @@
                     <VBox fx:id="toolStatsVBox"/>
                     <VBox fx:id="toolAbilitiesVBox" styleClass="tool-abilities-box" maxWidth="200"/>
                 </HBox>
-                <Button fx:id="addToComparisonButton" text="add to comparison"/>
+                <Button fx:id="addToComparisonButton" text="add to comparison" visible="false"/>
                 <Region VBox.vgrow="ALWAYS"/>
             </VBox>
         </bottom>
     </BorderPane>
-    <BorderPane fx:id="comparisonPane" styleClass="comparison-pane">
+    <BorderPane fx:id="comparisonPane" styleClass="comparison-pane" visible="false">
         <right>
             <Button fx:id="exitButton" text="X" prefWidth="24" prefHeight="24" styleClass="exit-button"/>
         </right>

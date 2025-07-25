@@ -14,4 +14,9 @@ public abstract class Ability {
     public String getName() { return name; }
     public String getColor() { return color; }
     public String getDescription() { return description; }
+
+    @Override
+    public String toString() {
+        return getName() + " - " + getDescription();
+    }
 }

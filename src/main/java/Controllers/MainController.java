@@ -18,7 +18,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -32,9 +31,8 @@ public class MainController {
     public ImageView logoImage;
     private Tool tool;
     private final ObservableList<Tool> toolsToCompare = FXCollections.observableArrayList();
+    @SuppressWarnings("FieldCanBeLocal")
     private final int TOOL_COMPARISON_CAP = 3;
-    @FXML
-    private StackPane mainWindow;
     @FXML
     private Pane comparisonPane;
     @FXML
@@ -44,7 +42,7 @@ public class MainController {
     @FXML
     private VBox toolStatsVBox, toolAbilitiesVBox, comparisonPaneVBox;
     @FXML
-    private Text errorLabel;
+    private Text errorLabel, successLabel;
     @FXML
     private Button calculateButton, addToComparisonButton, compareButton, exitButton;
 
@@ -56,13 +54,13 @@ public class MainController {
                 compareButton.setText("Compare (" + toolsToCompare.size() + ")");
             }
         });
-        comparisonPane.setVisible(false);
         toolComboBox.getItems().addAll("Pickaxe", "Shovel", "Hatchet", "Mattock", "Hammer", "Excavator", "Lumber Axe", "Scythe");
         toolComboBox.setOnAction(event -> handleToolSelection(toolComboBox.getValue()));
         calculateButton.setOnAction(event -> {
             errorLabel.setVisible(false);
             try{
                 calculateToolStats();
+                displaySuccess("Tool calculated successfully");
                 addToComparisonButton.setVisible(true);
                 calculateButton.setDisable(true);
             }
@@ -74,10 +72,10 @@ public class MainController {
         });
         compareButton.setText("Compare (" + toolsToCompare.size() + ")");
         compareButton.setOnAction(event -> comparisonPane.setVisible(true));
-        addToComparisonButton.setVisible(false);
         addToComparisonButton.setOnAction(event -> {
            try{
                addToComparison(tool);
+               displaySuccess("Added to comparison");
            }
            catch (Exception e){
                displayError(e.getMessage());
@@ -227,7 +225,7 @@ public class MainController {
     }
     
     private Text createAbilityBox(Ability ability){
-        Text abilityBox = makeText(ability.getName() + " - " + ability.getDescription(), 18, true);
+        Text abilityBox = makeText(ability.toString(), 18, true);
         abilityBox.setWrappingWidth(500);
         abilityBox.setStyle("-fx-fill: " + ability.getColor());
         abilityBox.setStroke(Color.BLACK);
@@ -249,13 +247,12 @@ public class MainController {
     }
 
     private void addToComparison(Tool tool) throws Exception {
-        if(tool == null){
+        if(tool == null)
             throw new Exception("No tool selected!");
-        }
-        if(toolsToCompare.contains(tool)) return;
-        if(toolsToCompare.size() == TOOL_COMPARISON_CAP){
+        if(toolsToCompare.contains(tool))
+            throw new Exception("Tool already in comparison");
+        if(toolsToCompare.size() == TOOL_COMPARISON_CAP)
             throw new Exception("Maximum number of tools reached.\nRemove a tool from comparison to add another one.");
-        }
         toolsToCompare.add(tool);
     }
 
@@ -282,8 +279,15 @@ public class MainController {
     }
 
     private void displayError(String text){
+        successLabel.setVisible(false);
         errorLabel.setVisible(true);
         errorLabel.setText(text);
+    }
+
+    private void displaySuccess(String text){
+        errorLabel.setVisible(false);
+        successLabel.setVisible(true);
+        successLabel.setText(text);
     }
 
     private Text makeText(String text, int fontSize, boolean bold){

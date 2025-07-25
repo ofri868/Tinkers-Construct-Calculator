@@ -45,28 +45,26 @@ public abstract class Material {
     public void addAbility(Ability ability){abilities.add(ability);}
     public static Material createMaterialInstance(String materialName) {
         List<String> availablePackages = Arrays.asList("EnderIO", "ExtraUtilities", "IndustrialForegoing", "Others", "ThermalExpansion", "TheTwilightForest", "TinkersConstruct", "Vanilla");
-        try {
-            for(String packageName : availablePackages) {
-                // Remove spaces to match class name
-                String className = materialName.replace(" ", "");
-                // Full package path to your material classes
-                String fullClassName = "Logic.Materials." + packageName + "." + className;
-                // Load the class and instantiate it
-                Class<?> clazz;
-                try {
-                    clazz = Class.forName(fullClassName);
-                }
-                catch (ClassNotFoundException e) {
-                    continue;
-                }
-                if (Material.class.isAssignableFrom(clazz)) {
-                    return (Material) clazz.getDeclaredConstructor().newInstance();
-                } else {
-                    throw new IllegalArgumentException("Class " + className + " is not a subclass of Material");
-                }
+        for(String packageName : availablePackages) {
+            // Remove spaces to match class name
+            String className = materialName.replace(" ", "");
+            // Full package path to your material classes
+            String fullClassName = "Logic.Materials." + packageName + "." + className;
+            // Load the class and instantiate it
+            Class<?> clazz;
+            try {
+                clazz = Class.forName(fullClassName);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            catch (ClassNotFoundException e) {
+                continue;
+            }
+            try {
+                if(Material.class.isAssignableFrom(clazz)) return (Material) clazz.getDeclaredConstructor().newInstance();
+                else throw new IllegalArgumentException("Class " + className + " is not a subclass of Material");
+            }
+            catch (Exception e) {
+                throw new IllegalArgumentException("material not found!");
+            }
         }
         throw new IllegalArgumentException("material not found!");
     }

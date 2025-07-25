@@ -1,6 +1,5 @@
 package Logic.Tools;
 
-import Logic.Abilities.Ability;
 import Logic.Materials.Material;
 import Logic.Parts.ToolParts.*;
 import Logic.Parts.ToolParts.Extras.*;
@@ -34,7 +33,7 @@ public abstract class Tool {
     public ToolPart getHandle() { return handle; }
     public int getDurability() { return durability; }
     public abstract void calculateDurability();
-    public double getMiningSpeed() { return miningSpeed; }
+//    public double getMiningSpeed() { return miningSpeed; }
     public abstract void calculateMiningSpeed();
     public double getAttack() { return attack; }
     public abstract void calculateAttack();
@@ -42,13 +41,6 @@ public abstract class Tool {
     public void calculateAbilities() {
         abilities.addAll(head.getMaterial().getAbilities());
         abilities.addAll(handle.getMaterial().getAbilities());
-    }
-    public String getAbilitiesString() {
-        StringBuilder abilities = new StringBuilder();
-        for (Ability ability : this.abilities) {
-            abilities.append(ability.toString()).append("\n");
-        }
-        return abilities.toString();
     }
 
     public String getPartsString(){

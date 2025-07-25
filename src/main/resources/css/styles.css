@@ -96,6 +96,11 @@
     -fx-font-weight: bold;
 }
 
+.success-label{
+    -fx-fill: green;
+    -fx-font-weight: bold;
+}
+
 .button {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
