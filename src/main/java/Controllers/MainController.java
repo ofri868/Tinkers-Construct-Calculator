@@ -32,7 +32,7 @@ public class MainController {
     private Tool tool;
     private final ObservableList<Tool> toolsToCompare = FXCollections.observableArrayList();
     @SuppressWarnings("FieldCanBeLocal")
-    private final int TOOL_COMPARISON_CAP = 3;
+    private final int TOOL_COMPARISON_CAP = 5;
     @FXML
     private Pane comparisonPane;
     @FXML
@@ -54,7 +54,7 @@ public class MainController {
                 compareButton.setText("Compare (" + toolsToCompare.size() + ")");
             }
         });
-        toolComboBox.getItems().addAll("Pickaxe", "Shovel", "Hatchet", "Mattock", "Hammer", "Excavator", "Lumber Axe", "Scythe");
+        toolComboBox.getItems().addAll(Tool.TOOLS);
         toolComboBox.setOnAction(event -> handleToolSelection(toolComboBox.getValue()));
         calculateButton.setOnAction(event -> {
             errorLabel.setVisible(false);

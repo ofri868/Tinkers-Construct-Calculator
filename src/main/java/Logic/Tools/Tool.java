@@ -11,6 +11,7 @@ import Logic.Utils.AbilitySet;
 import Logic.Utils.PartType;
 import javafx.util.Pair;
 
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class Tool {
@@ -21,6 +22,7 @@ public abstract class Tool {
     protected final Head head;
     protected final Handle handle;
     protected AbilitySet abilities;
+    public static final List<String> TOOLS = Arrays.asList("Pickaxe", "Shovel", "Hatchet", "Mattock", "Hammer", "Excavator", "Lumber Axe", "Scythe");
 
     public Tool(String toolName, Head head, Handle handle) {
         this.toolName = toolName;
