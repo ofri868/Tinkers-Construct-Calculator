@@ -13,10 +13,11 @@ A desktop application for calculating and comparing tool stats from the Tinker's
 ## Features
 
 - 🧱 Select and customize tool parts
-- 📊 View stats in real time
+- 🔄 View stats in real time
 - 🔧 Support for modular material combinations
 - 💡 Lightweight, works offline
-- Support for various mods
+- 🧩 Mod Support: Supports materials from various Tinker's Construct compatible mods.
+- 📊 Tool Comparison: Compare multiple tool configurations side-by-side.
 
 ---
 
@@ -50,11 +51,18 @@ java -jar tinkers-construct-calculator-1.0.jar
 ---
 
 ## How to Use
+### Create tools
+1. Choose tool from the dropdown menu.
+2. Select materials for each part.
+3. Press `Calculate` and see calculated tool stats instantly.
 
-1. Launch the app.
-2. Choose tool from the dropdown menu.
-3. Select materials for each part.
-4. Press `Calculate` and see calculated tool stats instantly.
+### Compare between tools
+Compare between up to 5 tools to see which one fits your needs best!
+1. Make the tools you wish to compare.
+2. Click `Add to comparison` for each tool.
+3. Click `Compare` and watch the stats for each tool side by side.
+4. Click `Remove` to remove a tool from the comparison.
+
 
 Perfect for theorycrafting and optimizing Tinker's Construct tools without even opening Minecraft.
 
