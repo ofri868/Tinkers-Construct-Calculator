@@ -28,7 +28,8 @@ public class MainController {
     public ImageView logoImage;
     private Tool tool;
     private final ObservableList<Tool> toolsToCompare = FXCollections.observableArrayList();
-    private final ObservableList<String> availableMaterials = FXCollections.observableArrayList();
+    private final List<String> availableMaterials = new ArrayList<>();
+    private final List<ComboBox<String>> materialDropdowns = new ArrayList<>();
     @SuppressWarnings("FieldCanBeLocal")
     private final int TOOL_COMPARISON_CAP = 5;
     @FXML
@@ -44,7 +45,8 @@ public class MainController {
     @FXML
     private Button calculateButton, addToComparisonButton, compareButton, exitButton;
     @FXML
-    private CheckBox tinkersConstructCheckBox, thermalExpansionCheckBox, enderIOCheckBox, extraUtilitiesCheckBox, industrialForegoingCheckBox, theTwilightForestCheckBox;
+    private CheckBox tinkersConstructCheckBox, thermalExpansionCheckBox, enderIOCheckBox, extraUtilitiesCheckBox,
+            industrialForegoingCheckBox, theTwilightForestCheckBox, vanillaCheckBox, othersCheckBox;
 
     @FXML
     public void initialize() {
@@ -54,6 +56,8 @@ public class MainController {
                 compareButton.setText("Compare (" + toolsToCompare.size() + ")");
             }
         });
+        setMaterialSelection();
+        setupCheckBoxes();
         toolComboBox.getItems().addAll(Tool.TOOLS);
         toolComboBox.setOnAction(event -> handleToolSelection(toolComboBox.getValue()));
         calculateButton.setOnAction(event -> {
@@ -87,8 +91,8 @@ public class MainController {
     }
 
     private void handleToolSelection(String selectedTool) {
-
         materialOptionsContainer.getChildren().clear();
+        materialDropdowns.clear();
 
         switch (selectedTool) {
             case "Pickaxe" ->
@@ -163,6 +167,7 @@ public class MainController {
                 calculateButton.setDisable(false);
             }
         });
+        materialDropdowns.add(comboBox);
         vbox.getChildren().addAll(label, comboBox);
         return vbox;
     }
@@ -170,7 +175,7 @@ public class MainController {
     private ComboBox<String> createMaterialDropdown(String id) {
         ComboBox<String> materialDropdown = new ComboBox<>();
         materialDropdown.setPromptText("--Select Material--");
-        materialDropdown.setItems(FXCollections.observableArrayList(Material.MATERIALS));
+        materialDropdown.setItems(FXCollections.observableArrayList(availableMaterials));
         materialDropdown.setId(id);
         return materialDropdown;
     }
@@ -205,7 +210,7 @@ public class MainController {
                             selectedMaterials.add(new Pair<>(partType, selectedMaterial));
                         }
                         else {
-                            throw new Exception("please select " + materialBox.getId().replace(":", "") + " material");
+                            throw new Exception("Please select " + materialBox.getId().replace(":", "") + " material");
                         }
                     }
                 }
@@ -322,13 +327,41 @@ public class MainController {
         return removeButton;
     }
 
-    //TODO: create the check/unckeck functions for each box
+
     private void setupCheckBoxes(){
-        enderIOCheckBox.setOnAction(event -> {});
-        tinkersConstructCheckBox.setOnAction(event -> {});
-        thermalExpansionCheckBox.setOnAction(event -> {});
-        extraUtilitiesCheckBox.setOnAction(event -> {});
-        industrialForegoingCheckBox.setOnAction(event -> {});
-        theTwilightForestCheckBox.setOnAction(event -> {});
+        enderIOCheckBox.setOnAction(event -> setMaterialSelection());
+        tinkersConstructCheckBox.setOnAction(event -> setMaterialSelection());
+        thermalExpansionCheckBox.setOnAction(event -> setMaterialSelection());
+        extraUtilitiesCheckBox.setOnAction(event -> setMaterialSelection());
+        industrialForegoingCheckBox.setOnAction(event -> setMaterialSelection());
+        theTwilightForestCheckBox.setOnAction(event -> setMaterialSelection());
+        vanillaCheckBox.setOnAction(event -> setMaterialSelection());
+        othersCheckBox.setOnAction(event -> setMaterialSelection());
+    }
+
+    private void setMaterialSelection(){
+        availableMaterials.clear();
+        if(enderIOCheckBox.isSelected()) availableMaterials.addAll(Material.ENDERIO_MATERIALS);
+        if(tinkersConstructCheckBox.isSelected()) availableMaterials.addAll(Material.TINKERS_CONSTRUCT_MATERIALS);
+        if(thermalExpansionCheckBox.isSelected()) availableMaterials.addAll(Material.THERMAL_EXPANSION_MATERIALS);
+        if(extraUtilitiesCheckBox.isSelected()) availableMaterials.addAll(Material.EXTRA_UTILITIES_MATERIALS);
+        if(industrialForegoingCheckBox.isSelected()) availableMaterials.addAll(Material.INDUSTRIAL_FOREGOING_MATERIALS);
+        if(theTwilightForestCheckBox.isSelected()) availableMaterials.addAll(Material.THE_TWILIGHT_FOREST_MATERIALS);
+        if(vanillaCheckBox.isSelected()) availableMaterials.addAll(Material.VANILLA_MATERIALS);
+        if(othersCheckBox.isSelected()) availableMaterials.addAll(Material.OTHER_MATERIALS);
+        applyMaterialFilter();
+    }
+
+    private void applyMaterialFilter(){
+        for(ComboBox<String> box: materialDropdowns){
+            String selection = box.getValue();
+            box.getItems().clear();
+            box.getItems().addAll(availableMaterials);
+            if (availableMaterials.contains(selection)) {
+                System.out.println("available");
+                box.setValue(selection);
+            }
+            else box.setValue(null);
+        }
     }
 }

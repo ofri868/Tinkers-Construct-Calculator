@@ -15,16 +15,33 @@ public abstract class Material {
     protected final double baseDamage;
     protected final double handleModifier;
     protected List<Ability> abilities;
-    public static final List<String> MATERIALS = Arrays.asList(
-            "Electrical Steel", "Energetic Alloy", "Vibrant Alloy", "Redstone Alloy", "Conductive Iron",
-            "Pulsating Iron", "Dark Steel", "Soularium", "End Steel", "Iron Alloy", "Naga Scale",
-            "Steeleaf", "Fiery Ingot", "Knightmetal Ingot", "Wood", "Stone", "Flint", "Cactus", "Bone",
-            "Obsidian", "Prismarine", "End Stone", "Paper", "Sponge", "Firewood", "Iron",
-            "Pig Iron", "Knightslime", "Slime", "Blue Slime", "Magma Slime", "Netherrack",
-            "Cobalt", "Ardite", "Manyullyn", "Copper", "Bronze", "Lead", "Silver", "Electrum", "Steel",
-            "Treated Wood", "Constantan", "Magical Wood", "Evil Infused Iron", "Enchanted Metal",
-            "Demonic Metal", "Plastic", "Pink Slime", "Reinforced Pink Slime", "Corrupted"
+    public static final List<String> ENDERIO_MATERIALS = Arrays.asList(
+            "Conductive Iron", "Dark Steel", "Electrical Steel", "End Steel", "Energetic Alloy",
+            "Pulsating Iron", "Redstone Alloy", "Soularium", "Vibrant Alloy"
     );
+    public static final List<String> TINKERS_CONSTRUCT_MATERIALS = Arrays.asList(
+            "Ardite", "Blue Slime", "Cobalt", "Knightslime", "Magma Slime", "Manyullyn", "Pig Iron"
+            );
+    public static final List<String> EXTRA_UTILITIES_MATERIALS = Arrays.asList(
+            "Demonic Metal", "Enchanted Metal", "Evil Infused Iron", "Magical Wood"
+    );
+    public static final List<String> INDUSTRIAL_FOREGOING_MATERIALS = Arrays.asList(
+            "Pink Slime", "Plastic", "Reinforced Pink Slime"
+    );
+    public static final List<String> THERMAL_EXPANSION_MATERIALS = Arrays.asList(
+            "Bronze", "Copper", "Electrum", "Lead", "Silver", "Steel"
+    );
+    public static final List<String> THE_TWILIGHT_FOREST_MATERIALS = Arrays.asList(
+            "Fiery Ingot", "Knightmetal Ingot", "Naga Scale", "Steeleaf"
+    );
+    public static final List<String> VANILLA_MATERIALS = Arrays.asList(
+            "Bone", "Cactus", "End Stone", "Flint", "Iron", "Netherrack", "Obsidian", "Paper",
+            "Prismarine", "Slime", "Sponge", "Stone", "Wood"
+            );
+    public static final List<String> OTHER_MATERIALS = Arrays.asList(
+            "Constantan", "Corrupted", "Firewood", "Iron Alloy", "Treated Wood"
+    );
+
 
     public Material(String name, double miningSpeed, MiningLevel miningLevel, double baseDamage, double handleModifier) {
         this.name = name;

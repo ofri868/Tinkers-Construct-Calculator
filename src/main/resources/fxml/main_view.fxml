@@ -26,6 +26,7 @@
                         <ComboBox fx:id="toolComboBox" promptText="Select Tool"/>
                     </VBox>
                     <VBox styleClass="check-box-Vbox">
+                        <CheckBox fx:id="vanillaCheckBox" text="Vanilla" selected="true"/>
                         <CheckBox fx:id="tinkersConstructCheckBox" text="Tinker's Construct" selected="true"/>
                         <CheckBox fx:id="thermalExpansionCheckBox" text="Thermal Expansion" selected="true"/>
                         <CheckBox fx:id="enderIOCheckBox" text="EnderIO" selected="true"/>
@@ -34,6 +35,7 @@
                         <CheckBox fx:id="extraUtilitiesCheckBox" text="Extra Utilities" selected="true"/>
                         <CheckBox fx:id="industrialForegoingCheckBox" text="Industrial Foregoing" selected="true"/>
                         <CheckBox fx:id="theTwilightForestCheckBox" text="The Twilight Forest" selected="true"/>
+                        <CheckBox fx:id="othersCheckBox" text="Others" selected="true"/>
                     </VBox>
                 </HBox>
                 <HBox fx:id="materialOptionsContainer" alignment="CENTER_LEFT" style="-fx-padding: 10 0 0 0"/>
