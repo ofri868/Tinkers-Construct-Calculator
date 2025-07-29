@@ -24,6 +24,11 @@
     -fx-padding: 10;
 }
 
+.check-box-Vbox{
+    -fx-padding: 0 0 0 10;
+    -fx-spacing: 3;
+}
+
 .scroll-pane {
     -fx-background-color: white;
     -fx-border-color: transparent;

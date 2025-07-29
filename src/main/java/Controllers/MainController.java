@@ -11,12 +11,9 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.Node;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Button;
-import javafx.scene.control.Separator;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -31,6 +28,7 @@ public class MainController {
     public ImageView logoImage;
     private Tool tool;
     private final ObservableList<Tool> toolsToCompare = FXCollections.observableArrayList();
+    private final ObservableList<String> availableMaterials = FXCollections.observableArrayList();
     @SuppressWarnings("FieldCanBeLocal")
     private final int TOOL_COMPARISON_CAP = 5;
     @FXML
@@ -45,6 +43,8 @@ public class MainController {
     private Text errorLabel, successLabel;
     @FXML
     private Button calculateButton, addToComparisonButton, compareButton, exitButton;
+    @FXML
+    private CheckBox tinkersConstructCheckBox, thermalExpansionCheckBox, enderIOCheckBox, extraUtilitiesCheckBox, industrialForegoingCheckBox, theTwilightForestCheckBox;
 
     @FXML
     public void initialize() {
@@ -320,5 +320,15 @@ public class MainController {
         removeButton.setOnAction(event -> toolsToCompare.remove(Integer.parseInt(id)));
         removeButton.getStyleClass().add("remove-button");
         return removeButton;
+    }
+
+    //TODO: create the check/unckeck functions for each box
+    private void setupCheckBoxes(){
+        enderIOCheckBox.setOnAction(event -> {});
+        tinkersConstructCheckBox.setOnAction(event -> {});
+        thermalExpansionCheckBox.setOnAction(event -> {});
+        extraUtilitiesCheckBox.setOnAction(event -> {});
+        industrialForegoingCheckBox.setOnAction(event -> {});
+        theTwilightForestCheckBox.setOnAction(event -> {});
     }
 }

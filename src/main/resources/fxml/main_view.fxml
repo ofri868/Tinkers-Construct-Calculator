@@ -19,9 +19,23 @@
             </VBox>
         </top>
         <center>
-            <VBox spacing="5">
-                <Label text="Tool:"/>
-                <ComboBox fx:id="toolComboBox" promptText="Select Tool"/>
+            <VBox spacing="5" style="-fx-padding: 10 0 10 0">
+                <HBox>
+                    <VBox>
+                        <Label text="Tool:"/>
+                        <ComboBox fx:id="toolComboBox" promptText="Select Tool"/>
+                    </VBox>
+                    <VBox styleClass="check-box-Vbox">
+                        <CheckBox fx:id="tinkersConstructCheckBox" text="Tinker's Construct" selected="true"/>
+                        <CheckBox fx:id="thermalExpansionCheckBox" text="Thermal Expansion" selected="true"/>
+                        <CheckBox fx:id="enderIOCheckBox" text="EnderIO" selected="true"/>
+                    </VBox>
+                    <VBox styleClass="check-box-Vbox">
+                        <CheckBox fx:id="extraUtilitiesCheckBox" text="Extra Utilities" selected="true"/>
+                        <CheckBox fx:id="industrialForegoingCheckBox" text="Industrial Foregoing" selected="true"/>
+                        <CheckBox fx:id="theTwilightForestCheckBox" text="The Twilight Forest" selected="true"/>
+                    </VBox>
+                </HBox>
                 <HBox fx:id="materialOptionsContainer" alignment="CENTER_LEFT" style="-fx-padding: 10 0 0 0"/>
                 <HBox>
                     <Button fx:id="calculateButton" text="Calculate" alignment="TOP_LEFT"/>
