@@ -1,7 +1,6 @@
 # Tinkers-Construct-Calculator
 ## Stat calculator for Tinker's Construct tools
 
-A desktop application for calculating and comparing tool stats from the Tinker's Construct Minecraft mod.
 ## Table of Contents
 
 - [Features](#features)
@@ -17,6 +16,7 @@ A desktop application for calculating and comparing tool stats from the Tinker's
 - 🔧 Support for modular material combinations
 - 💡 Lightweight, works offline
 - 🧩 Mod Support: Supports materials from various Tinker's Construct compatible mods.
+- ✅ Mod filtering: Select which mods to choose materials from
 - 📊 Tool Comparison: Compare multiple tool configurations side-by-side.
 
 ---
@@ -53,8 +53,9 @@ java -jar tinkers-construct-calculator-1.0.jar
 ## How to Use
 ### Create tools
 1. Choose tool from the dropdown menu.
-2. Select materials for each part.
-3. Press `Calculate` and see calculated tool stats instantly.
+2. Select which mods you would like to choose materials from (all included by default).
+3. Select materials for each part.
+4. Press `Calculate` and see calculated tool stats instantly.
 
 ### Compare between tools
 Compare between up to 5 tools to see which one fits your needs best!
@@ -71,6 +72,5 @@ Supported mods: EnderIO, Extra Utilities 2, Industrial Foregoing, Thermal Expans
 ---
 ## Questions & Support
 
-- 📧 Contact: ofri0101@gmail.com
 - 💬 Report bugs or ask questions: [GitHub Issues](https://github.com/ofri868/tinkers-construct-calculator/issues)
 - 🙌 Contributions and suggestions are welcome!

@@ -19,7 +19,7 @@
             </VBox>
         </top>
         <center>
-            <VBox spacing="5" style="-fx-padding: 10 0 10 0">
+            <VBox spacing="5" style="-fx-padding: 20 0 20 0">
                 <HBox>
                     <VBox>
                         <Label text="Tool:"/>
@@ -51,9 +51,9 @@
         </center>
         <bottom>
             <VBox>
-                <HBox alignment="CENTER_LEFT">
+                <HBox alignment="CENTER_LEFT" styleClass="tool-display-hbox">
                     <VBox fx:id="toolStatsVBox"/>
-                    <VBox fx:id="toolAbilitiesVBox" styleClass="tool-abilities-box" maxWidth="200"/>
+                    <VBox fx:id="toolAbilitiesVBox" styleClass="tool-abilities-box" HBox.hgrow="ALWAYS"/>
                 </HBox>
                 <Button fx:id="addToComparisonButton" text="add to comparison" visible="false"/>
                 <Region VBox.vgrow="ALWAYS"/>
@@ -65,7 +65,7 @@
             <Button fx:id="exitButton" text="X" prefWidth="24" prefHeight="24" styleClass="exit-button"/>
         </right>
         <center>
-            <ScrollPane styleClass="scroll-pane">
+            <ScrollPane styleClass="scroll-pane" hbarPolicy="NEVER" fitToWidth="true">
                 <VBox fx:id="comparisonPaneVBox" spacing="20"/>
             </ScrollPane>
         </center>

@@ -15,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -28,7 +29,7 @@ public class MainController {
     public ImageView logoImage;
     private Tool tool;
     private final ObservableList<Tool> toolsToCompare = FXCollections.observableArrayList();
-    private final List<String> availableMaterials = new ArrayList<>();
+    private final Set<String> availableMaterials = new HashSet<>();
     private final List<ComboBox<String>> materialDropdowns = new ArrayList<>();
     @SuppressWarnings("FieldCanBeLocal")
     private final int TOOL_COMPARISON_CAP = 5;
@@ -227,6 +228,9 @@ public class MainController {
     private void displayToolAbilities(){
         toolAbilitiesVBox.getChildren().clear();
         toolAbilitiesVBox.getChildren().addAll(makeToolAbilities(tool));
+        for (Node node : toolAbilitiesVBox.getChildren()) {
+            if (node instanceof Text) ((Text)node).wrappingWidthProperty().bind(toolAbilitiesVBox.widthProperty());
+        }
     }
     
     private Text createAbilityBox(Ability ability){
@@ -267,13 +271,18 @@ public class MainController {
             Tool tool = toolsToCompare.get(i);
             HBox toolDisplay = new HBox();
             toolDisplay.setId(String.valueOf(i));
+            toolDisplay.getStyleClass().add("tool-display-hbox");
             VBox toolStats = new VBox();
             toolStats.getChildren().addAll(makeToolStats(tool));
             toolStats.getChildren().add(makeRemoveButton(toolDisplay.getId()));
             VBox toolAbilities = new VBox();
             toolAbilities.getStyleClass().add("tool-abilities-box");
+            HBox.setHgrow(toolAbilities, Priority.ALWAYS);
             toolAbilities.getChildren().addAll(makeToolAbilities(tool));
             toolDisplay.getChildren().addAll(toolStats, toolAbilities);
+            for (Node node : toolAbilities.getChildren()) {
+                if (node instanceof Text) ((Text)node).wrappingWidthProperty().bind(toolAbilities.widthProperty());
+            }
             if(i != 0){
                 Separator separator = new Separator();
                 separator.setOrientation(Orientation.HORIZONTAL);

@@ -25,8 +25,8 @@
 }
 
 .check-box-Vbox{
-    -fx-padding: 0 0 0 10;
-    -fx-spacing: 3;
+    -fx-padding: 0 0 0 15;
+    -fx-spacing: 5;
 }
 
 .scroll-pane {
@@ -49,6 +49,9 @@
     -fx-opacity: 1;
 }
 
+.tool-display-hbox{
+    -fx-spacing: 20;
+}
 
 .tool-name {
     -fx-font-size: 18px;
@@ -69,8 +72,8 @@
 
 .tool-abilities-box{
     -fx-font-size: 16px;
-    -fx-padding: 0 0 0 20;
     -fx-spacing: 10;
+    -fx-min-width: 100%;
 }
 
 .exit-button{
