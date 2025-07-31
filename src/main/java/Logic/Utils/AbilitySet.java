@@ -3,10 +3,10 @@ package Logic.Utils;
 import Logic.Abilities.Ability;
 import Logic.Abilities.StackableAbility;
 
-import java.util.HashSet;
 import java.util.Iterator;
+import java.util.TreeSet;
 
-public class AbilitySet extends HashSet<Ability> {
+public class AbilitySet extends TreeSet<Ability> {
     public boolean add(StackableAbility ability){
         if (super.contains(ability)){
             Iterator<Ability> iter = super.iterator();

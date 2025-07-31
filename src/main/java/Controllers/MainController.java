@@ -13,10 +13,7 @@ import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -29,12 +26,12 @@ public class MainController {
     public ImageView logoImage;
     private Tool tool;
     private final ObservableList<Tool> toolsToCompare = FXCollections.observableArrayList();
-    private final Set<String> availableMaterials = new HashSet<>();
+    private final Set<String> availableMaterials = new TreeSet<>();
     private final List<ComboBox<String>> materialDropdowns = new ArrayList<>();
     @SuppressWarnings("FieldCanBeLocal")
     private final int TOOL_COMPARISON_CAP = 5;
     @FXML
-    private Pane comparisonPane;
+    private BorderPane mainWindow, comparisonPane;
     @FXML
     private ComboBox<String> toolComboBox;
     @FXML

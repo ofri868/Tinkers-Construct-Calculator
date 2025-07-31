@@ -1,6 +1,6 @@
 package Logic.Abilities;
 
-public abstract class Ability {
+public abstract class Ability implements Comparable<Ability>{
 
     protected final String name;
     protected final String color;
@@ -19,4 +19,15 @@ public abstract class Ability {
     public String toString() {
         return getName() + " - " + getDescription();
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Ability) {
+            return name.equals(((Ability) obj).name);
+        }
+        return false;
+    }
+    public int compareTo(Ability ability) {
+        return name.compareTo(ability.name);
+    }
+
 }

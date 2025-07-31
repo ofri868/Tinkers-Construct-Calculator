@@ -6,7 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Text?>
 <StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.MainController">
-    <BorderPane styleClass="calculator">
+    <BorderPane fx:id="mainWindow" styleClass="calculator">
         <top>
             <VBox spacing="4" alignment="CENTER" >
                 <ImageView fx:id="logoImage"
@@ -53,7 +53,9 @@
             <VBox>
                 <HBox alignment="CENTER_LEFT" styleClass="tool-display-hbox">
                     <VBox fx:id="toolStatsVBox"/>
-                    <VBox fx:id="toolAbilitiesVBox" styleClass="tool-abilities-box" HBox.hgrow="ALWAYS"/>
+                    <ScrollPane styleClass="scroll-pane" hbarPolicy="NEVER" fitToWidth="true" fitToHeight="true" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                        <VBox fx:id="toolAbilitiesVBox" styleClass="tool-abilities-box"/>
+                    </ScrollPane>
                 </HBox>
                 <Button fx:id="addToComparisonButton" text="add to comparison" visible="false"/>
                 <Region VBox.vgrow="ALWAYS"/>
